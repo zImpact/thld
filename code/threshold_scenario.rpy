@@ -988,7 +988,7 @@ label thld_1:
     thld_narrator "Мне не хочется туда, но здесь я точно не выдержу."
     thld_narrator "От застывшей перед глазами картинки меня вырвало."
     scene bg black with Dissolve(2)
-        $ thld_set_time("day")
+    $ thld_set_time("day")
     scene bg ext_island_day with Dissolve(2)
     play music thld_new_years_end fadein 5
     play ambience ambience_lake_shore_day fadein 2
