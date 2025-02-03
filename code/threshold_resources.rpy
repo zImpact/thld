@@ -51,7 +51,7 @@ init python:
     thld_names["thld_pi_teapot"] = "Пионер"
     store.thld_names_list.append("thld_pi_teapot")
 
-    thld_colors["thld_pi_railway"] = {"speaker_color": (85, 19, 19, 255)} #TODO: цвет поменять
+    thld_colors["thld_pi_railway"] = {"speaker_color": (85, 19, 19, 255)} # TODO: цвет поменять
     thld_names["thld_pi_railway"] = "Пионер"
     store.thld_names_list.append("thld_pi_railway")
 

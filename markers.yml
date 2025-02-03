@@ -1,4 +1,3 @@
 markers:
-  - "#TODO:"
-  - "#FIXME:"
-  - "todo"
+  - "# TODO:"
+  - "# FIXME:"
