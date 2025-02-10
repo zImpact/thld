@@ -495,12 +495,15 @@ init:
 
     image thld_main_menu_particles = ThldDustParticles("thld/images/effects/particle_dust.png", 300)
     image thld_sunset_dust = ThldDustParticles("thld/images/effects/sunset_particle_dust.png", 300)
+    image thld_ext_lake_day = "thld/images/effects/ext_lake_day.png"
+    image thld_ext_boat_day = "thld/images/effects/ext_boat_day.png"
 
     image thld_blank_skip = renpy.display.behavior.ImageButton(Null(1920, 1080), Null(1920, 1080), clicked=[Jump("thld_after_intro")])
 
     image thld_intro_logo = thld_gui_path + "misc/intro_logo.png"
     image thld_main_menu_background = thld_gui_path + "main_menu/main_menu_background.png"
     image thld_logowhite_idle = thld_gui_path + "misc/logowhite_idle.png"
+    image thld_main_menu_bar_null = thld_gui_path + "preferences/main_menu/bar_null.png"
     image thld_main_menu_options_frame = ThldBlackRectangle(width=1804, height=1028, alpha=0.6)
 
     transform thld_main_menu_particles_anim:
