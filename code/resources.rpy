@@ -4,21 +4,28 @@ init python:
     from math import sqrt, pow
     from renpy.uguu import GL_REPEAT
 
+    thld_mod_name = "thld"
+    thld_prefix = thld_mod_name + "_"
+
     for file_name in renpy.list_files():
-        if "thld" in file_name:
+        if thld_mod_name in file_name:
             file_path = path.splitext(path.basename(file_name))[0]
 
             if file_name.startswith("thld/images/bg/"):
-                renpy.image("bg " + file_path, file_name)
-
-            elif file_name.startswith("thld/images/gui/"):
-                renpy.image(file_path, file_name)
+                renpy.image("bg " + thld_prefix + file_path, file_name)
 
             elif file_name.startswith("thld/images/sprites/"):
-                renpy.image(file_path, ConditionSwitch("persistent.sprite_time == 'sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)), "persistent.sprite_time == 'night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), True, file_name))
+                renpy.image(
+                    thld_prefix + file_path,
+                    ConditionSwitch(
+                        "persistent.sprite_time == 'sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)), 
+                        "persistent.sprite_time == 'night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), 
+                        True, file_name
+                    )
+                )
 
             elif file_name.startswith("thld/sounds/"):
-                globals()[file_path] = file_name
+                globals()[thld_prefix + file_path] = file_name
 
     thld_std_set_for_preview = {}
     thld_std_set = {}
@@ -195,19 +202,19 @@ init python:
             config.allow_skipping = True
 
     def thld_set_timeofday_cursor():
-        config.mouse_displayable = MouseDisplayable(thld_gui_path + 'cursors/' + persistent.timeofday + '/cursor.png', 0, 0)
+        config.mouse_displayable = MouseDisplayable(thld_gui_path + "cursors/" + persistent.timeofday + "/cursor.png", 0, 0)
 
     def thld_set_dynamic_cursor(state):
         if thld_set_timeofday_cursor in config.overlay_functions:
             config.overlay_functions.remove(thld_set_timeofday_cursor)
 
-        if state == 'timeofday':
+        if state == "timeofday":
             config.overlay_functions.append(thld_set_timeofday_cursor)
 
-        elif state == 'main_menu':
+        elif state == "main_menu":
             config.mouse_displayable = MouseDisplayable(thld_gui_path + "cursors/main_menu/cursor.png", 0, 0)
 
-        elif state == 'null':
+        elif state == "null":
             config.mouse_displayable = MouseDisplayable(Null(0, 0), 0, 0)
 
     def thld_set_time(timeofday, sprite_time=None):
