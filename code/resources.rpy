@@ -2,7 +2,6 @@ init python:
     from os import path
     from random import randint, uniform
     from math import sqrt, pow
-    from renpy.uguu import GL_REPEAT
 
     thld_mod_name = "thld"
     thld_prefix = thld_mod_name + "_"
@@ -11,10 +10,10 @@ init python:
         if thld_mod_name in file_name:
             file_path = path.splitext(path.basename(file_name))[0]
 
-            if file_name.startswith("thld/images/bg/"):
+            if file_name.startswith(thld_mod_name + "/images/bg/"):
                 renpy.image("bg " + thld_prefix + file_path, file_name)
 
-            elif file_name.startswith("thld/images/sprites/"):
+            elif file_name.startswith(thld_mod_name + "/images/sprites/"):
                 renpy.image(
                     thld_prefix + file_path,
                     ConditionSwitch(
@@ -24,7 +23,7 @@ init python:
                     )
                 )
 
-            elif file_name.startswith("thld/sounds/"):
+            elif file_name.startswith(thld_mod_name + "/sounds/"):
                 globals()[thld_prefix + file_path] = file_name
 
     thld_std_set_for_preview = {}
@@ -483,75 +482,8 @@ init python:
                                     self.height / 2 - text_render.get_size()[1] / 2))
             return render
 
-    renpy.register_shader(
-        "thld_glitch_shader",
-        
-        variables="""
-            uniform float u_time;
-            uniform sampler2D tex0;
-            uniform vec2 iResolution;
-            
-            uniform float u_amplitude;
-            uniform float u_amount;
-            uniform float u_speed;
-            uniform float u_intensity;
-            uniform float u_ratio;
-            uniform vec2 u_tile;
-            uniform float u_jitter;
-            
-            attribute vec2 a_tex_coord;
-            varying vec2 v_tex_coord;
-        """,
-        
-        vertex_300="""
-            v_tex_coord = a_tex_coord;
-        """,
-        
-        fragment_functions="""
-            float saturate(float x) {
-                return min(1.0, max(0.0, x));
-            }
-
-            float Glitch_JatterTotal(vec2 uv, float time, float speed, float amplitude, float amount) {
-                vec4 time4 = vec4(6.0, 16.0, 19.0, 27.0) * time * speed;
-                vec4 splitAmount4 = (1.0 + sin(time4)) * 0.5;
-                float splitAmount = splitAmount4.x * splitAmount4.y * splitAmount4.z * splitAmount4.w;
-                splitAmount = pow(splitAmount, amplitude);
-                splitAmount *= (0.05 * amount);
-                return splitAmount;
-            }
-
-            float Glitch_JatterBlock(vec2 uv, float time, float speed, float intensity, float ratio, float jitter, vec2 tile) {
-                float uTime = floor(time * speed);
-                const vec3 Magic = vec3(393555.9000370003845, -55865.4634555294951, 782941.5577042901757);
-                vec2 xy = floor(uv * tile);
-                vec3 seed = mod(vec3(xy, uTime) * 11035.15245 + Magic, vec3(96.9875));
-                vec3 seed_2 = mod(vec3(floor(vec2(uv.x + (fract(dot(seed.zyx + seed.zxx + seed.yzy, fract(seed * seed))) - 0.5) * jitter, uv.y + (fract(dot(seed + seed.yyx + seed.zxz, fract(seed.zxy * seed.zxy))) - 0.5) * jitter) * tile), uTime) * 11035.15245 + Magic, vec3(96.9875));
-                float h = saturate(fract(dot(seed + seed.yzx + seed.zxy, fract(seed.zyx * seed.zyx))) - 1.0 + ratio) / ratio;
-                return pow(h, 8.0) * pow(h, 3.0) * intensity;
-            }
-        """,
-
-        fragment_300="""
-            vec2 uv = v_tex_coord;
-            float jatterTotalAmount = Glitch_JatterTotal(uv, u_time, u_speed, u_amplitude, u_amount);
-            float jatterBlockAmount = Glitch_JatterBlock(uv, u_time, u_speed, u_intensity, u_ratio, u_jitter, u_tile);
-
-            vec2 uvR = uv + vec2(jatterTotalAmount - jatterBlockAmount, 0.0);
-            vec2 uvG = uv;
-            vec2 uvB = uv + vec2(-jatterTotalAmount + jatterBlockAmount, 0.0);
-
-            vec4 colorR = texture2D(tex0, uvR);
-            vec4 colorG = texture2D(tex0, uvG);
-            vec4 colorB = texture2D(tex0, uvB);
-            float alpha = max(max(colorR.a, colorG.a), colorB.a);
-
-            gl_FragColor = vec4(colorR.r, colorG.g, colorB.b, alpha);
-        """
-    )
-
 init:
-    $ thld_main_menu_font = "thld/images/gui/fonts/gotham_pro_light.ttf"
+    $ thld_main_menu_font = thld_gui_path + "fonts/gotham_pro_light.ttf"
     $ thld_main_menu_buttons_padding = 20
     $ thld_main_menu_buttons_alpha = 0.6
     $ thld_main_menu_buttons_size = 60
@@ -561,10 +493,14 @@ init:
     $ thld_lock_quit = False
     $ thld_lock_quick_menu = False
 
-    image thld_main_menu_particles = ThldDustParticles("thld/images/gui/misc/particle_dust.png", 300)
-    image thld_sunset_dust = ThldDustParticles("thld/images/gui/misc/sunset_particle_dust.png", 300)
+    image thld_main_menu_particles = ThldDustParticles("thld/images/effects/particle_dust.png", 300)
+    image thld_sunset_dust = ThldDustParticles("thld/images/effects/sunset_particle_dust.png", 300)
+
     image thld_blank_skip = renpy.display.behavior.ImageButton(Null(1920, 1080), Null(1920, 1080), clicked=[Jump("thld_after_intro")])
 
+    image thld_intro_logo = thld_gui_path + "misc/intro_logo.png"
+    image thld_main_menu_background = thld_gui_path + "main_menu/main_menu_background.png"
+    image thld_logowhite_idle = thld_gui_path + "misc/logowhite_idle.png"
     image thld_main_menu_options_frame = ThldBlackRectangle(width=1804, height=1028, alpha=0.6)
 
     transform thld_main_menu_particles_anim:
@@ -583,20 +519,6 @@ init:
             )
         crop(.0, .0, 1.0, 1.0)
         crop_relative True
-
-    transform thld_glitch_transform(amplitude=2.0, amount=2.0, speed=10.0, intensity=0.1, ratio=1.0, tile=(2.0, 3.0), jitter=0.6):
-        mesh True
-        shader "thld_glitch_shader"
-
-        u_amplitude amplitude
-        u_amount amount
-        u_speed speed
-        u_intensity intensity
-        u_ratio ratio
-        u_tile tile
-        u_jitter jitter
-
-        gl_texture_wrap(GL_REPEAT, GL_REPEAT)
 
     transform thld_boat_moving():
         subpixel True

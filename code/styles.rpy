@@ -1,4 +1,4 @@
-init python:
+init -10 python:
     thld_gui_path = "thld/images/gui/"
 
     thld_link_font = thld_gui_path + "fonts/gothic.ttf"

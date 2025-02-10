@@ -25,7 +25,14 @@ init python:
         if not persistent.thld_on_save_timeofday:
             persistent.thld_on_save_timeofday = {}
 
-        persistent.thld_on_save_timeofday[slot] = (persistent.timeofday, persistent.sprite_time, persistent.font_size, _preferences.volumes["music"], _preferences.volumes["sfx"], _preferences.volumes["voice"])
+        persistent.thld_on_save_timeofday[slot] = (
+            persistent.timeofday,
+            persistent.sprite_time,
+            persistent.font_size,
+            _preferences.volumes["music"],
+            _preferences.volumes["sfx"],
+            _preferences.volumes["voice"]
+        )
         
     def thld_screen_save():
         for screen_name in ["main_menu", "quit", "say", "nvl", "game_menu_selector", "yesno_prompt", "choice", "help"]:
@@ -41,7 +48,7 @@ init python:
 
         layout.LOADING = "Потерять несохраненные данные?"
             
-        config.main_menu_music = "thld/sounds/music/thld_reef_inevitability.mp3"
+        config.main_menu_music = thld_reef_inevitability
         config.linear_saves_page_size = None
         persistent._file_page = "thld_FilePage_1"  
 
@@ -55,7 +62,6 @@ init python:
          
         layout.LOADING = "Загрузка приведёт к потере несохранённых данных.\nВы уверены, что хотите сделать это?"
         
-        config.overlay_functions.remove(thld_set_timeofday_cursor)
         config.mouse_displayable = MouseDisplayable("images/misc/mouse/1.png", 0, 0)
         config.main_menu_music = "sound/music/blow_with_the_fires.ogg"
 
@@ -64,7 +70,7 @@ init python:
         for channel in ["ambience", "music", "sound", "sound_loop"]:
             renpy.music.stop(channel)
 
-        renpy.play(music_list["blow_with_the_fires"], channel = "music")
+        renpy.play(music_list["blow_with_the_fires"], channel="music")
 
     def thld_screens_save_act():
         thld_screen_save()
