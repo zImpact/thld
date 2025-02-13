@@ -4,7 +4,7 @@ label thld_1:
     scene bg thld_int_catacombs_living_celling with fade3
     $ thld_set_mode_adv()
     $ thld_set_dynamic_cursor("timeofday")
-    ## todo Adventure_is_Calling_by_Shane_Black
+    ## TODO Adventure_is_Calling_by_Shane_Black
     play ambience ambience_catacombs fadein 2
     thld_narrator "Я смотрю в потолок, на всевозможные сплетения труб. Мутные капли медленно, словно нехотя падают на пол. {w}Сколько я уже тут?"
     thld_narrator "Сначала всё выглядело очень даже неплохо. Я проживал неделю за неделей в счастливом неведении.{w} Снова и снова, снова и снова."
@@ -28,7 +28,7 @@ label thld_1:
     thld_narrator "Ещё через несколько циклов {i}он{/i} вернулся. Не знаю, был ли он тем же самым или другим. В сущности, это не важно."
     thld_narrator "Он пришёл с приглашением. {w}С этого всё и началось."
     stop ambience fadeout 2
-    ## todo stop music
+    ## TODO stop music
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
     $ thld_set_time("night")
@@ -71,7 +71,7 @@ label thld_1:
     thld_th "Здесь собрались одни психи. {w}Они все поголовно сошли с ума!"
     thld_narrator "Кто-то похлопал меня сзади по плечу."
     show thld_pi normal with dissolve
-    ##todo play Stressful_Talks_Miguel_Abuel
+    ## TODO play Stressful_Talks_Miguel_Abuel
     thld_pi_evi "Твой выход, чемпион."
     show thld_pi smile with dspr
     thld_narrator "Скорее всего это был тот, кто и привёл меня сюда. Взгляд его излучал полное равнодушие, даже скорее скуку."
@@ -188,7 +188,7 @@ label thld_1:
     show thld_hall pos2 smile3 at center
     with Dissolve(2)
     play ambience ambience_camp_center_day fadein 2
-    ##todo play bensound_tomorrow
+    ## TODO play bensound_tomorrow
     thld_me "И всё же. Как мне вернуться в мой Лагерь?"
     thld_teapot "Неужто мы тебе так быстро надоели?"
     thld_narrator "Мы неспешно прогуливались по Общему лагерю. Днём он казался совсем заброшенным."
@@ -1284,7 +1284,7 @@ label thld_beacon_forest:
     
     ## переход
     
-    ##todo play JoeMathew-FirePlaceGuitar
+    ## TODO play JoeMathew-FirePlaceGuitar
     thld_narrator "Беспокойный ветер перебирал кроны деревьев у нас над головами, приминал траву под нашими ногами."
     thld_narrator "Лес, притихший и будто бы выжидающий чего-то, вторил моему состоянию, а верёвка, выданная Маяком перед выходом, била по моему поясу."
     thld_narrator "Он действительно взял меня, совсем зелёного новичка на операцию спасения. Внутренне я сгорал от удивления и восторга."
@@ -1337,7 +1337,7 @@ label thld_beacon_forest:
     thld_narrator "Он свесил руку, чтобы подтянуть меня наверх." 
     
     ## смена фона на закатную библиотеку
-    ##todo play bensound_tomorrow
+    ## TODO play bensound_tomorrow
     
     thld_narrator "Мы с Маяком сидели, прислонившись спиной к стене более высокого здания библиотеки."
     thld_pharos "Он так, середняк из турнирной таблицы, достаточно опасен, чтобы мои Искатели не рискнули с ним связаться..."
@@ -1361,7 +1361,7 @@ label thld_beacon_forest:
     thld_pharos "Если бы не Проповедник, думаю, я до сих пор знал бы только ужас, боль и страх. "
     thld_pharos "Я никогда не забуду то чувство, когда я впервые ощутил себя под защитой."
     thld_narrator "Было неожиданно, что он решил раскрыться мне."
-    ##todo stop music
+    ## TODO stop music
     
     
     thld_pharos "Пригнись. {w}Слышишь? Наш садист приближается."
@@ -1427,7 +1427,7 @@ label thld_beacon_forest:
     thld_narrator "Проповедник протянул мне стакан. Я сразу же припал к нему."
     thld_preacher "А-ха-ха, не так резко. Подавишься."
     
-    ##todo play Jjos-Illusion
+    ## TODO play Jjos-Illusion
     thld_narrator "Вода была прохладной и довольно сладкой на вкус."
     thld_narrator "Я выпил стакан залпом."
     thld_preacher "Иногда мы добавляем сахар в воду. Помогает лучше думать."
@@ -1478,7 +1478,7 @@ label thld_beacon_forest:
     thld_preacher "Что же, если твои слова правдивы, а желания искренни, раскрывай глаза."
     thld_narrator "Я резко раскрыл свои глаза."
     ##раскрытие глаз и на секунду перед фоном площади мелькает фон площади с городом на горизонте.
-    ##todo stop music
+    ## TODO stop music
     
     thld_narrator "От долгой темноты я не сразу привык к свету, да и глаза немного слезились, но краем глаза, лишь на мгновение..."
     thld_pharos "Что ты видел?"
