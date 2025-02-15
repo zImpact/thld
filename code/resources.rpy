@@ -45,75 +45,67 @@ init python:
     thld_names["thld_pacifist"] = "Пацифист"
     store.thld_names_list.append("thld_pacifist")
 
-    thld_colors["thld_pi_i_p"] = {"speaker_color": (75, 2, 135, 255)}
+    thld_colors["thld_pi_i_p"] = {"speaker_color": "#4b0287"} # FIXME: поменять тэг thld_pi_i_p на что-то более осмысленное
     thld_names["thld_pi_i_p"] = "Пионер"
     store.thld_names_list.append("thld_pi_i_p")
 
-    thld_colors["thld_pi_evi"] = {"speaker_color": (255, 242, 38, 255)}
+    thld_colors["thld_pi_evi"] = {"speaker_color": "#FFFFFF"} # FIXME: тут тоже поменять тэг (что это вообще за перс?) и цвет задать
     thld_names["thld_pi_evi"] = "Пионер"
     store.thld_names_list.append("thld_pi_evi")
 
-    thld_colors["thld_pi_teapot"] = {"speaker_color": (85, 19, 19, 255)}
+    thld_colors["thld_pi_teapot"] = {"speaker_color": "#551313"}
     thld_names["thld_pi_teapot"] = "Пионер"
     store.thld_names_list.append("thld_pi_teapot")
 
-    thld_colors["thld_pi_railway"] = {"speaker_color": (85, 19, 19, 255)} # TODO: цвет поменять
-    thld_names["thld_pi_railway"] = "Пионер"
-    store.thld_names_list.append("thld_pi_railway")
-
-    thld_colors["thld_teapot"] = {"speaker_color": (85, 19, 19, 255)}
+    thld_colors["thld_teapot"] = {"speaker_color": "#551313"}
     thld_names["thld_teapot"] = "Чайник"
     store.thld_names_list.append("thld_teapot")
 
-    thld_colors["thld_preacher"] = {"speaker_color": "#FFFFFF"}
-    thld_names["thld_preacher"] = "Проповедник"
-    store.thld_names_list.append("thld_preacher")
+    thld_colors["thld_pi_railway"] = {"speaker_color": "#FFFFFF"} # TODO: цвет задать
+    thld_names["thld_pi_railway"] = "Пионер"
+    store.thld_names_list.append("thld_pi_railway")
 
-    thld_colors["thld_pi_preacher"] = {"speaker_color": "#FFFFFF"}
+    thld_colors["thld_pi_preacher"] = {"speaker_color": "#FFFFFF"} # TODO: цвет задать
     thld_names["thld_pi_preacher"] = "Пионер в халате"
     store.thld_names_list.append("thld_pi_preacher")
 
-    thld_colors["thld_third"] = {"speaker_color": (0, 73, 121, 255)}
+    thld_colors["thld_preacher"] = {"speaker_color": "#FFFFFF"} # TODO: цвет задать
+    thld_names["thld_preacher"] = "Проповедник"
+    store.thld_names_list.append("thld_preacher")
+
+    thld_colors["thld_third"] = {"speaker_color": "#004979"}
     thld_names["thld_third"] = "Третий"
     store.thld_names_list.append("thld_third")
-    
-    thld_colors["thld_third_hidden"] = {"speaker_color": (0, 73, 121, 255)}
-    thld_names["thld_third_hidden"] = "Пионер"
-    store.thld_names_list.append("thld_third_hidden")
 
-    thld_colors["thld_pi_ann"] = {"speaker_color": (175, 145, 81, 255)}
+    thld_colors["thld_pi_ann"] = {"speaker_color": "#af9151"} # FIXME: почему ann? поменять тег
     thld_names["thld_pi_ann"] = "Распорядитель"
     store.thld_names_list.append("thld_pi_ann")
-
-    thld_colors["thld_pi_mad"] = {"speaker_color": (159, 147, 147, 255)}
+ 
+    thld_colors["thld_pi_mad"] = {"speaker_color": "#9f9393"} # FIXME: mad? поменять тег
     thld_names["thld_pi_mad"] = "Мясник"
     store.thld_names_list.append("thld_pi_mad")
 
-    thld_colors["thld_guest"] = {"speaker_color": (159, 147, 147, 255)}
-    thld_names["thld_guest"] = "Гость"
-    store.thld_names_list.append("thld_guest")
-
-    thld_colors["thld_nit"] = {"speaker_color": (159, 147, 147, 255)}
+    thld_colors["thld_nit"] = {"speaker_color": "#9f9393"}
     thld_names["thld_nit"] = "Ниточник"
     store.thld_names_list.append("thld_nit")
 
-    thld_colors["thld_pharos"] = {"speaker_color": (1, 1, 1, 255)} # TODO: цвет поменять
-    thld_names["thld_pharos"] = "Маяк"
-    store.thld_names_list.append("thld_pharos")
-
-    thld_colors["thld_pi_pharos"] = {"speaker_color": (1, 1, 1, 255)} # TODO: цвет поменять
+    thld_colors["thld_pi_pharos"] = {"speaker_color": "#FFFFFF"} # TODO: цвет задать
     thld_names["thld_pi_pharos"] = "Пионер"
     store.thld_names_list.append("thld_pi_pharos")
 
-    thld_colors["thld_engi"] = {"speaker_color": (1, 1, 1, 255)} # TODO: цвет поменять
+    thld_colors["thld_pharos"] = {"speaker_color": "#FFFFFF"} # TODO: цвет задать
+    thld_names["thld_pharos"] = "Маяк"
+    store.thld_names_list.append("thld_pharos")
+
+    thld_colors["thld_engi"] = {"speaker_color": "#FFFFFF"} # TODO: цвет задать
     thld_names["thld_engi"] = "Инженер"
     store.thld_names_list.append("thld_engi")
 
-    thld_colors["thld_gensek"] = {"speaker_color": (209, 209, 65, 255)}
+    thld_colors["thld_gensek"] = {"speaker_color": "#d1d141"}
     thld_names["thld_gensek"] = "Генсек"
     store.thld_names_list.append("thld_gensek")
 
-    thld_colors["thld_crowd"] = {"speaker_color": (209, 209, 65, 255)} # TODO: цвет поменять
+    thld_colors["thld_crowd"] = {"speaker_color": "#FFFFFF"} # TODO: цвет задать
     thld_names["thld_crowd"] = "Толпа"
     store.thld_names_list.append("thld_crowd")
 
