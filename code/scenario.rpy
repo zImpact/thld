@@ -760,6 +760,7 @@ label thld_1:
     $ renpy.pause(2, hard=True)
     scene bg thld_ext_tribune_night with Dissolve(2)
     play sound_loop thld_voices fadein 2
+    ##TODO play music Prince of Persia - Warrior Within OST #0 Installation
     thld_narrator "Телепортация заняла чуть более часа, но у меня наконец-то начало получаться." 
     thld_narrator "И снова я здесь."
     thld_narrator "Бойцовская яма. Место в общем лагере, куда стаскивают новичков для «боевого крещения»." 
