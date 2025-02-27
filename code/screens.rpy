@@ -334,7 +334,7 @@ screen thld_preferences_main_menu():
                 ypos 600
                 action Preference("skip", "all")    
             
-        text ["Громкость музыки"]:
+        text "Громкость музыки":
             font thld_main_menu_font
             size 60
             xpos 380
@@ -401,11 +401,11 @@ screen thld_preferences():
     tag menu
     modal True
     
-    $ thld_bar_null = Frame((thld_gui_path + "preferences/" + persistent.timeofday + "/thld_bar_null.png"), 36, 36)
-    $ thld_bar_full = Frame((thld_gui_path + "preferences/" + persistent.timeofday + "/thld_bar_full.png"), 36, 36)
+    $ thld_bar_null = Frame((thld_gui_path + "preferences/" + persistent.timeofday + "/bar_null.png"), 36, 36)
+    $ thld_bar_full = Frame((thld_gui_path + "preferences/" + persistent.timeofday + "/bar_full.png"), 36, 36)
 
     window background thld_gui_path + "preferences/" + persistent.timeofday + "/preferences_bg.jpg":
-        text ["Настройки"]: 
+        text "Настройки": 
             style "thld_settings_link"
             xalign 0.5 
             yalign 0.08 
@@ -426,70 +426,70 @@ screen thld_preferences():
 
                 has grid 1 16 xfill True spacing 15
 
-                text ["Режим экрана"]:
+                text "Режим экрана":
                     style "thld_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.fullscreen:
-                            add thld_gui_path + "preferences/" + persistent.timeofday + "/thld_leaf.png" ypos 0.12
+                            add thld_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
 
-                        textbutton ["Во весь экран"]: 
+                        textbutton "Во весь экран": 
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("display", "fullscreen")
 
                     hbox xalign 0.5:
                         if not _preferences.fullscreen:
-                            add thld_gui_path + "preferences/" + persistent.timeofday + "/thld_leaf.png" ypos 0.12
+                            add thld_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
 
-                        textbutton ["В окне"]: 
+                        textbutton "В окне": 
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("display", "window")
 
-                text ["Пропускать"]:
+                text "Пропускать":
                     style "thld_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.skip_unseen:
-                            add thld_gui_path + "preferences/" + persistent.timeofday + "/thld_leaf.png" ypos 0.12
+                            add thld_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
 
-                        textbutton ["Всё"]: 
+                        textbutton "Всё": 
                             style "thld_log_button" 
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("skip", "all")
 
                     hbox xalign 0.5:
                         if not _preferences.skip_unseen:
-                            add thld_gui_path + "preferences/" + persistent.timeofday + "/thld_leaf.png" ypos 0.12
+                            add thld_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
 
-                        textbutton ["Виденное ранее"]: 
+                        textbutton "Виденное ранее": 
                             style "thld_log_button" 
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("skip", "seen")
 
-                text ["Громкость"]:
+                text "Громкость":
                     style "thld_settings_header_" + persistent.timeofday                   
                     xalign 0.5
 
                 grid 2 1 xfill True:
-                    textbutton ["Музыка"]: 
+                    textbutton "Музыка": 
                         style "thld_log_button"
                         text_style "thld_settings_text_" + persistent.timeofday
                         action NullAction()
@@ -499,14 +499,14 @@ screen thld_preferences():
                         value Preference("music volume")
                         left_bar thld_bar_full 
                         right_bar thld_bar_null 
-                        thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
-                        hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
+                        thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                        hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                         xmaximum 1.35 
                         ymaximum 36 
                         xpos -0.55
 
                 grid 2 1 xfill True:
-                    textbutton ["Звуки"]: 
+                    textbutton "Звуки": 
                         style "thld_log_button"
                         text_style "thld_settings_text_" + persistent.timeofday
                         action NullAction()
@@ -516,14 +516,14 @@ screen thld_preferences():
                         value Preference("sound volume") 
                         left_bar thld_bar_full 
                         right_bar thld_bar_null 
-                        thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
-                        hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
+                        thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                        hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                         xmaximum 1.35 
                         ymaximum 36
                         xpos -0.55
 
                 grid 2 1 xfill True:
-                    textbutton ["Эмбиент"]: 
+                    textbutton "Эмбиент": 
                         style "thld_log_button"
                         text_style "thld_settings_text_" + persistent.timeofday
                         action NullAction()
@@ -533,13 +533,13 @@ screen thld_preferences():
                         value Preference("voice volume") 
                         left_bar thld_bar_full 
                         right_bar thld_bar_null 
-                        thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
-                        hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
+                        thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                        hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                         xmaximum 1.35 
                         ymaximum 36 
                         xpos -0.55
 
-                text ["Скорость текста"]:
+                text "Скорость текста":
                     style "thld_settings_header_" + persistent.timeofday
                     xalign 0.5
 
@@ -547,37 +547,37 @@ screen thld_preferences():
                     value Preference("text speed") 
                     left_bar thld_bar_full 
                     right_bar thld_bar_null 
-                    thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
-                    hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
+                    thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                    hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                     xalign 0.5 
                     xmaximum 0.8 
                     ymaximum 36
 
-                text ["Автопереход"]:
+                text "Автопереход":
                     style "thld_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.afm_time != 0:
-                            add thld_gui_path + "preferences/" + persistent.timeofday + "/thld_leaf.png" ypos 0.12
+                            add thld_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
 
-                        textbutton ["Включить"]: 
+                        textbutton "Включить": 
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("auto-forward after click", "enable")
 
                     hbox xalign 0.5:
                         if _preferences.afm_time == 0:
-                            add thld_gui_path + "preferences/" + persistent.timeofday + "/thld_leaf.png" ypos 0.12
+                            add thld_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
 
-                        textbutton ["Выключить"]: 
+                        textbutton "Выключить": 
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action (Preference("auto-forward time", 0), Preference("auto-forward after click", "disable"))
@@ -590,8 +590,8 @@ screen thld_preferences():
                     value Preference("auto-forward time") 
                     left_bar thld_bar_full 
                     right_bar thld_bar_null 
-                    thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
-                    hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/thld_htumb.png" 
+                    thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
+                    hover_thumb thld_gui_path + "preferences/" + persistent.timeofday + "/htumb.png" 
                     xalign 0.5 
                     xmaximum 0.8 
                     ymaximum 36
@@ -603,7 +603,7 @@ screen thld_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if persistent.font_size == "small":
-                            add thld_gui_path + "preferences/" + persistent.timeofday + "/thld_leaf.png" ypos 0.12
+                            add thld_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -615,7 +615,7 @@ screen thld_preferences():
 
                     hbox xalign 0.5:
                         if not persistent.font_size == "small":
-                            add thld_gui_path + "preferences/" + persistent.timeofday + "/thld_leaf.png" ypos 0.12
+                            add thld_gui_path + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
 
                         else:
                             null width 22
@@ -644,20 +644,20 @@ screen thld_save():
     modal True
     
     window background thld_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png":
-        text ["Сохранение"]: 
+        text "Сохранение": 
             style "thld_settings_link" 
             xalign 0.5 
             yalign 0.08 
             color "#ffffff"
 
-        textbutton ["Назад"]: 
+        textbutton "Назад": 
             style "thld_log_button" 
             text_style "thld_settings_link" 
             xalign 0.015 
             yalign 0.92 
             action Return()
 
-        textbutton ["Сохранить"]: 
+        textbutton "Сохранить": 
             style "thld_log_button" 
             text_style "thld_settings_link"
             yalign 0.92 
@@ -667,7 +667,7 @@ screen thld_save():
                 FileSave(selected_slot)
             ]
 
-        textbutton ["Удалить"]: 
+        textbutton "Удалить": 
             style "thld_log_button" 
             text_style "thld_settings_link" 
             yalign 0.92 
@@ -696,20 +696,20 @@ screen thld_load():
     modal True
     
     window background thld_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png":
-        text ["Загрузка"]: 
+        text "Загрузка": 
             style "thld_settings_link" 
             xalign 0.5 
             yalign 0.08 
             color "#ffffff"
 
-        textbutton ["Назад"]: 
+        textbutton "Назад": 
             style "thld_log_button" 
             text_style "thld_settings_link" 
             xalign 0.015 
             yalign 0.92 
             action Return()
 
-        textbutton ["Загрузить"]: 
+        textbutton "Загрузить": 
             style "thld_log_button" 
             text_style "thld_settings_link" 
             yalign 0.92 
@@ -719,7 +719,7 @@ screen thld_load():
                 FileLoad(selected_slot, confirm=False)
             ]
             
-        textbutton ["Удалить"]: 
+        textbutton "Удалить": 
             style "thld_log_button" 
             text_style "thld_settings_link"
             yalign 0.92
@@ -973,7 +973,7 @@ screen thld_quit():
     else:
         add thld_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png"
             
-        text ["Вы действительно \nхотите выйти?"]:
+        text "Вы действительно \nхотите выйти?":
             font thld_link_font
             size 100
             text_align 0.5
@@ -982,7 +982,7 @@ screen thld_quit():
             antialias True
             kerning 2
             
-        textbutton ["Да"]:
+        textbutton "Да":
             style "thld_settings_header_quit"
             text_style "thld_settings_header_quit"
             xpos 493
@@ -992,7 +992,7 @@ screen thld_quit():
                 ShowMenu("main_menu")
             ]
             
-        textbutton ["Нет"]:
+        textbutton "Нет":
             style "thld_settings_header_quit"
             text_style "thld_settings_header_quit"
             xpos 1230
@@ -1027,7 +1027,7 @@ screen thld_yesno_prompt(yes_action, message, no_action):
 
         size 30
 
-    textbutton ["Да"]: 
+    textbutton "Да": 
         text_size 60 
         style "thld_log_button" 
         text_style "thld_settings_link" 
@@ -1035,7 +1035,7 @@ screen thld_yesno_prompt(yes_action, message, no_action):
         xalign 0.3 
         action yes_action
 
-    textbutton ["Нет"]: 
+    textbutton "Нет": 
         text_size 60 
         style "thld_log_button" 
         text_style "thld_settings_link" 
@@ -1169,7 +1169,7 @@ screen thld_help():
     
     add thld_gui_path + "save_load/" + persistent.timeofday + "/load_bg.png"
     
-    text ["Информация"]:
+    text "Информация":
         font thld_link_font
         size 70
         xalign 0.5
@@ -1177,21 +1177,21 @@ screen thld_help():
         antialias True
         kerning 2
             
-    textbutton ["Группа VK"]:
+    textbutton "Группа VK":
         style "thld_log_button" 
         text_style "thld_settings_header_quit"
         xalign 0.5
         ypos 350
         action OpenURL("https://vk.com/public176281709")
 
-    textbutton ["Под холодным небом"]:
+    textbutton "Под холодным небом":
         style "thld_log_button" 
         text_style "thld_settings_header_quit"
         xalign 0.5
         ypos 500
         action OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=2262867309")
 
-    textbutton ["Сон"]:
+    textbutton "Сон":
         style "thld_log_button" 
         text_style "thld_settings_header_quit"
         xalign 0.5

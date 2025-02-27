@@ -109,6 +109,10 @@ init python:
     thld_names["thld_crowd"] = "Толпа"
     store.thld_names_list.append("thld_crowd")
 
+    thld_colors["thld_guide"] = {"speaker_color": "#FFFFFF"} # TODO: цвет задать
+    thld_names["thld_guide"] = "Проводник"
+    store.thld_names_list.append("thld_guide")
+
     def thld_char_define(character_name, is_nvl=False):
         global DynamicCharacter
         global nvl
