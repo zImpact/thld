@@ -4,7 +4,7 @@ label thld_1:
     scene bg thld_int_catacombs_living_celling with fade3
     $ thld_set_mode_adv()
     $ thld_set_dynamic_cursor("timeofday")
-    ## TODO Adventure_is_Calling_by_Shane_Black
+    play music american_dollar_signaling_through_the_flames fadein 2
     play ambience ambience_catacombs fadein 2
     thld_narrator "Я смотрю в потолок, на всевозможные сплетения труб. Мутные капли медленно, словно нехотя падают на пол. {w}Сколько я уже тут?"
     thld_narrator "Сначала всё выглядело очень даже неплохо. Я проживал неделю за неделей в счастливом неведении.{w} Снова и снова, снова и снова."
@@ -28,7 +28,7 @@ label thld_1:
     thld_narrator "Ещё через несколько циклов {i}он{/i} вернулся. Не знаю, был ли он тем же самым или другим. В сущности, это не важно."
     thld_narrator "Он пришёл с приглашением. {w}С этого всё и началось."
     stop ambience fadeout 2
-    ## TODO stop music
+    stop music fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
     $ thld_set_time("night")
@@ -71,7 +71,6 @@ label thld_1:
     thld_th "Здесь собрались одни психи. {w}Они все поголовно сошли с ума!"
     thld_narrator "Кто-то похлопал меня сзади по плечу."
     show thld_pi normal with dissolve
-    ## TODO play Stressful_Talks_Miguel_Abuel
     thld_pi_evi "Твой выход, чемпион."
     show thld_pi smile with dspr
     thld_narrator "Скорее всего это был тот, кто и привёл меня сюда. Взгляд его излучал полное равнодушие, даже скорее скуку."
@@ -181,8 +180,6 @@ label thld_1:
     stop ambience fadeout 3
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
-    
-    
     $ thld_set_time("day")
     scene bg ext_houses_day 
     show thld_hall pos2 smile3 at center
@@ -512,7 +509,6 @@ label thld_1:
     thld_narrator "Инженер снова оглянул меня."
     thld_engi "На эти риски я тоже готов."
     thld_engi "Ладно, если у вас ко мне дел больше нет, то не отвлекайте. Я хочу замерить метрики шпал в тишине. {w}Спасибо."
-    
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
@@ -647,7 +643,6 @@ label thld_1:
     thld_preacher "Рад был знакомству." 
     hide thld_preacher with dissolve
     thld_narrator "Я встал и направился за столик к Чайнику. На моё место уже успел сесть кто-то другой." 
-    
     ##TODO stop music
     show thld_hall pos2 smile at left
     show thld_third normal at right
@@ -754,7 +749,6 @@ label thld_1:
     thld_narrator "Генсек ухмыльнулся." 
     thld_gensek "Другого я и не ждал." 
     thld_gensek "Через две смены жду вас на пляже." # TODO: возможно, пересмотрим окно времени между этой сменой и морской. Две недели может быть слишком много 
-    
     stop sound_loop fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
@@ -1137,7 +1131,7 @@ label thld_beach_battle:
     thld_teapot "Есть, капитан."
     thld_narrator "Когда я снова поднялся на ноги, Чайник с удвоенной скоростью возился с двигателем."
     thld_me "Извини..."
-    thld_teapot "Да не..." # TODO: автопропуск на следующую реплику.
+    thld_teapot "Да не..."
     thld_gensek "Началось!"
     thld_narrator "Крик Генсека резко прозвенел у меня в ушах."
     thld_narrator "За плотом Чокнутого постепенно приближалась лодка Маяка с командой."
@@ -1288,7 +1282,7 @@ label thld_beacon_forest:
     
     ## переход
     
-    ## TODO play JoeMathew-FirePlaceGuitar
+    ## TODO play JoeMathew-FirePlaceGuitar (неактульная музыка?)
     thld_narrator "Беспокойный ветер перебирал кроны деревьев у нас над головами, приминал траву под нашими ногами."
     thld_narrator "Лес, притихший и будто бы выжидающий чего-то, вторил моему состоянию, а верёвка, выданная Маяком перед выходом, била по моему поясу."
     thld_narrator "Он действительно взял меня, совсем зелёного новичка на операцию спасения. Внутренне я сгорал от удивления и восторга."
@@ -1301,7 +1295,7 @@ label thld_beacon_forest:
     thld_pharos "Спрашивай." 
     thld_me "Проповедник говорил, что из Лагеря есть выход. Но почему тогда никто из старожилов Общего Лагеря выход еще не нашел? Чайник, например, или Генсек? Они ведь наверняка исходили здесь каждый угол." 
     thld_pharos "Всё верно, старожилы лагеря смогут пройтись по лагерям даже с закрытыми глазами." 
-    thld_pharos "Но Лагерь всё же чуть-чуть хитрее, чем обычная дверь. {w}Здесь мы лишь в преддверии настоящей жизни." ##кстати для тех, кто не вкурил сверх тонкий подтекст. Поэтому мод и называется преддверие. Ибо дверь откроется в Петле Времени. Как же я символически хАрош!
+    thld_pharos "Но Лагерь всё же чуть-чуть хитрее, чем обычная дверь. {w}Здесь мы лишь в преддверии настоящей жизни."
     thld_pharos "И смысл не в том, чтобы отсюда выйти, а в том, чтобы идти было куда." 
     thld_pharos "Если у тебя нет места, куда бы ты хотел вернуться, которое ты не мог бы назвать домом, то нет ориентира." 
     thld_pharos "Без него ты будешь вечно теряться в тумане. Как Генсек с Третьим." 
@@ -1430,8 +1424,7 @@ label thld_beacon_forest:
     thld_preacher "Хорошо."
     thld_narrator "Проповедник протянул мне стакан. Я сразу же припал к нему."
     thld_preacher "А-ха-ха, не так резко. Подавишься."
-    
-    ## TODO play Jjos-Illusion
+    play music thld_jjos_illusion fadein 2
     thld_narrator "Вода была прохладной и довольно сладкой на вкус."
     thld_narrator "Я выпил стакан залпом."
     thld_preacher "Иногда мы добавляем сахар в воду. Помогает лучше думать."
@@ -1482,8 +1475,7 @@ label thld_beacon_forest:
     thld_preacher "Что же, если твои слова правдивы, а желания искренни, раскрывай глаза."
     thld_narrator "Я резко раскрыл свои глаза."
     ##раскрытие глаз и на секунду перед фоном площади мелькает фон площади с городом на горизонте.
-    ## TODO stop music
-    
+    stop music fadeout 2
     thld_narrator "От долгой темноты я не сразу привык к свету, да и глаза немного слезились, но краем глаза, лишь на мгновение..."
     thld_pharos "Что ты видел?"
     thld_narrator "Видимо, моя ошарашенность отразилась на лице."
