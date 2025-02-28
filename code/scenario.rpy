@@ -1,4 +1,4 @@
-label thld_1:
+label thld_scenario:
     stop music fadeout 3
     $ renpy.pause(3, hard=True)
     scene bg thld_int_catacombs_living_celling with fade3

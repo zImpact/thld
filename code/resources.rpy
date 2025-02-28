@@ -500,6 +500,7 @@ init:
     image thld_main_menu_background = thld_gui_path + "main_menu/main_menu_background.png"
     image thld_logowhite_idle = thld_gui_path + "misc/logowhite_idle.png"
     image thld_main_menu_bar_null = thld_gui_path + "preferences/main_menu/bar_null.png"
+    image thld_main_menu_vbar_null = thld_gui_path + "main_menu/vbar_null.png"
     image thld_main_menu_options_frame = ThldBlackRectangle(width=1804, height=1028, alpha=0.6)
 
     transform thld_main_menu_particles_anim:
@@ -694,5 +695,12 @@ init:
         ThldGlitchEffect("thld_main_menu_bar_null")
         pause 0.2
         ThldGlitchEffect("thld_main_menu_bar_null")
+        pause 0.2
+        repeat
+
+    image thld_main_menu_vbar_null_glitched:
+        ThldGlitchEffect("thld_main_menu_vbar_null")
+        pause 0.2
+        ThldGlitchEffect("thld_main_menu_vbar_null")
         pause 0.2
         repeat
