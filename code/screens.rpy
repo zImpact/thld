@@ -35,6 +35,7 @@ init python:
         thld_gallery.unlock("bg " + bg)
 
     thld_music_box = {
+        "Reef — Inevitability": thld_reef_inevitability,
         "American Dollar — Signaling Through The Flames": thld_american_dollar_signaling_through_the_flames,
     }
 
@@ -316,7 +317,7 @@ screen thld_music_room():
 
         text "Музыка":
             font thld_main_menu_font
-            size 70
+            size 90
             xalign 0.5
             ypos 33
             antialias True
@@ -348,7 +349,7 @@ screen thld_background_gallery():
 
         text "Галерея":
             font thld_main_menu_font
-            size 70
+            size 90
             xalign 0.5
             ypos 33
             antialias True
