@@ -716,27 +716,26 @@ screen thld_text_history():
 screen thld_choice(items):
     modal True
     
-    python:
-        thld_choice_colors = {
+    $ thld_choice_colors = {
         "day": "#466123",
         "night": "#145644",
         "sunset": "#69652f",
         "prologue": "#496463"
-                            }
+    }
 
-        thld_choice_colors_hover = {                        
+    $ thld_choice_colors_hover = {                        
         "day": "#9dcd55",
         "night": "#3ccfa2",
         "sunset": "#dcd168",
         "prologue": "#98d8da"
-                            }
+    }
 
-        thld_choice_colors_selected = {                        
+    $ thld_choice_colors_selected = {                        
         "day": "#2a3b15",
         "night": "#0b3027",
         "sunset": "#42401e",
         "prologue": "#2d3d3d"
-                            }
+    }
 
     window background Frame(("thld/images/gui/choice/" + persistent.timeofday + "/choice_box.png"), 50, 50) xfill True yalign 0.5 left_padding 75 right_padding 75 bottom_padding 50 top_padding 50:
         has vbox xalign 0.5

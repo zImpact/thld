@@ -1,7 +1,6 @@
 init python:
     thld_music_box = {
         "Reef — Inevitability": thld_reef_inevitability,
-        "American Dollar — Signaling Through The Flames": thld_american_dollar_signaling_through_the_flames,
     }
 
     thld_music_room = MusicRoom(fadeout=1.0)
