@@ -767,7 +767,7 @@ label thld_scenario:
     $ renpy.pause(2, hard=True)
     scene bg thld_ext_tribune_night with Dissolve(2)
     play sound_loop thld_voices fadein 2
-    ##TODO play music Prince of Persia - Warrior Within OST #0 Installation
+    # TODO: play music Prince of Persia - Warrior Within OST #0 Installation
     thld_narrator "Телепортация заняла чуть более часа, но у меня наконец-то начало получаться." 
     thld_narrator "И снова я здесь."
     thld_narrator "Бойцовская яма. Место в общем лагере, куда стаскивают новичков для «боевого крещения»." 
@@ -1341,13 +1341,13 @@ label thld_scenario:
     thld_me "Я... Да, конечно..." 
     thld_narrator "От шторма новой информации я даже не знал что думать." 
     thld_pharos "А вот и место встречи." 
-    ## смена фона с леса на дневную библиотеку снаружи
+    # TODO: смена фона с леса на дневную библиотеку снаружи
     thld_narrator "Маяк разбежался и с разбегу вскарабкался на крышу подсобки рядом с основным зданием библиотеки." 
     thld_pharos "Взбирайся, мы дождемся садиста здесь." 
     thld_narrator "Он свесил руку, чтобы подтянуть меня наверх." 
     
-    ## смена фона на закатную библиотеку
-    ## TODO play bensound_tomorrow
+    # TODO: смена фона на закатную библиотеку
+    # TODO: play bensound_tomorrow
     scene bg thld_ext_library_sunset
     thld_narrator "Мы с Маяком сидели, прислонившись спиной к стене более высокого здания библиотеки."
     thld_pharos "Он так, середняк из турнирной таблицы, достаточно опасен, чтобы мои Искатели не рискнули с ним связаться..."
@@ -1371,7 +1371,7 @@ label thld_scenario:
     thld_pharos "Если бы не Проповедник, думаю, я до сих пор знал бы только ужас, боль и страх. "
     thld_pharos "Я никогда не забуду то чувство, когда я впервые ощутил себя под защитой."
     thld_narrator "Было неожиданно, что он решил раскрыться мне."
-    ## TODO stop music
+    # TODO: stop music
     thld_pharos "Пригнись. {w}Слышишь? Наш садист приближается."
     thld_pharos "Действительно, со стороны леса слышался нарастающий шорох."
     thld_narrator "Через какое-то время возле библиотеки возник силуэт. Слегка плывущий, отбрасывающий длинные тени в закатном свете."
