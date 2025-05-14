@@ -1,10 +1,8 @@
-init -10 python:
-    thld_gui_path = "thld/images/gui/"
-
-    thld_link_font = thld_gui_path + "fonts/gothic.ttf"
-    thld_header_font = thld_gui_path + "fonts/corbel.ttf"
+init python:
+    thld_link_font = THLD_GUI_PATH + "fonts/gothic.ttf"
+    thld_header_font = THLD_GUI_PATH + "fonts/corbel.ttf"
     thld_main_font = "fonts/calibri.ttf"
-    thld_main_menu_font = thld_gui_path + "fonts/gotham_pro_light.ttf"
+    thld_main_menu_font = THLD_GUI_PATH + "fonts/gotham_pro_light.ttf"
 
     style.thld_button_none = Style(style.button)
     style.thld_button_none.background = None
@@ -29,39 +27,39 @@ init -10 python:
     style.thld_titles_style.xmaximum = 0.8
 
     style.thld_save_load_button_main_menu = Style(style.button)
-    style.thld_save_load_button_main_menu.background = thld_gui_path + "save_load/main_menu/thumbnail_idle.png"
-    style.thld_save_load_button_main_menu.hover_background = thld_gui_path + "save_load/main_menu/thumbnail_hover.png"
-    style.thld_save_load_button_main_menu.selected_background = thld_gui_path + "save_load/main_menu/thumbnail_selected.png"
-    style.thld_save_load_button_main_menu.selected_hover_background = thld_gui_path + "save_load/main_menu/thumbnail_selected.png"
-    style.thld_save_load_button_main_menu.selected_idle_background = thld_gui_path + "save_load/main_menu/thumbnail_selected.png"
+    style.thld_save_load_button_main_menu.background = THLD_GUI_PATH + "save_load/main_menu/thumbnail_idle.png"
+    style.thld_save_load_button_main_menu.hover_background = THLD_GUI_PATH + "save_load/main_menu/thumbnail_hover.png"
+    style.thld_save_load_button_main_menu.selected_background = THLD_GUI_PATH + "save_load/main_menu/thumbnail_selected.png"
+    style.thld_save_load_button_main_menu.selected_hover_background = THLD_GUI_PATH + "save_load/main_menu/thumbnail_selected.png"
+    style.thld_save_load_button_main_menu.selected_idle_background = THLD_GUI_PATH + "save_load/main_menu/thumbnail_selected.png"
 
     style.thld_save_load_button_day = Style(style.button)
-    style.thld_save_load_button_day.background = thld_gui_path + "save_load/day/thumbnail_idle.png"
-    style.thld_save_load_button_day.hover_background = thld_gui_path + "save_load/day/thumbnail_hover.png"
-    style.thld_save_load_button_day.selected_background = thld_gui_path + "save_load/day/thumbnail_selected.png"
-    style.thld_save_load_button_day.selected_hover_background = thld_gui_path + "save_load/day/thumbnail_selected.png"
-    style.thld_save_load_button_day.selected_idle_background = thld_gui_path + "save_load/day/thumbnail_selected.png"
+    style.thld_save_load_button_day.background = THLD_GUI_PATH + "save_load/day/thumbnail_idle.png"
+    style.thld_save_load_button_day.hover_background = THLD_GUI_PATH + "save_load/day/thumbnail_hover.png"
+    style.thld_save_load_button_day.selected_background = THLD_GUI_PATH + "save_load/day/thumbnail_selected.png"
+    style.thld_save_load_button_day.selected_hover_background = THLD_GUI_PATH + "save_load/day/thumbnail_selected.png"
+    style.thld_save_load_button_day.selected_idle_background = THLD_GUI_PATH + "save_load/day/thumbnail_selected.png"
 
     style.thld_save_load_button_night = Style(style.button)
-    style.thld_save_load_button_night.background = thld_gui_path + "save_load/night/thumbnail_idle.png"
-    style.thld_save_load_button_night.hover_background = thld_gui_path + "save_load/night/thumbnail_hover.png"
-    style.thld_save_load_button_night.selected_background = thld_gui_path + "save_load/night/thumbnail_selected.png"
-    style.thld_save_load_button_night.selected_hover_background = thld_gui_path + "save_load/night/thumbnail_selected.png"
-    style.thld_save_load_button_night.selected_idle_background = thld_gui_path + "save_load/night/thumbnail_selected.png"
+    style.thld_save_load_button_night.background = THLD_GUI_PATH + "save_load/night/thumbnail_idle.png"
+    style.thld_save_load_button_night.hover_background = THLD_GUI_PATH + "save_load/night/thumbnail_hover.png"
+    style.thld_save_load_button_night.selected_background = THLD_GUI_PATH + "save_load/night/thumbnail_selected.png"
+    style.thld_save_load_button_night.selected_hover_background = THLD_GUI_PATH + "save_load/night/thumbnail_selected.png"
+    style.thld_save_load_button_night.selected_idle_background = THLD_GUI_PATH + "save_load/night/thumbnail_selected.png"
 
     style.thld_save_load_button_prologue = Style(style.button)
-    style.thld_save_load_button_prologue.background = thld_gui_path + "save_load/prologue/thumbnail_idle.png"
-    style.thld_save_load_button_prologue.hover_background = thld_gui_path + "save_load/prologue/thumbnail_hover.png"
-    style.thld_save_load_button_prologue.selected_background = thld_gui_path + "save_load/prologue/thumbnail_selected.png"
-    style.thld_save_load_button_prologue.selected_hover_background = thld_gui_path + "save_load/prologue/thumbnail_selected.png"
-    style.thld_save_load_button_prologue.selected_idle_background = thld_gui_path + "save_load/prologue/thumbnail_selected.png"
+    style.thld_save_load_button_prologue.background = THLD_GUI_PATH + "save_load/prologue/thumbnail_idle.png"
+    style.thld_save_load_button_prologue.hover_background = THLD_GUI_PATH + "save_load/prologue/thumbnail_hover.png"
+    style.thld_save_load_button_prologue.selected_background = THLD_GUI_PATH + "save_load/prologue/thumbnail_selected.png"
+    style.thld_save_load_button_prologue.selected_hover_background = THLD_GUI_PATH + "save_load/prologue/thumbnail_selected.png"
+    style.thld_save_load_button_prologue.selected_idle_background = THLD_GUI_PATH + "save_load/prologue/thumbnail_selected.png"
 
     style.thld_save_load_button_sunset = Style(style.button)
-    style.thld_save_load_button_sunset.background = thld_gui_path + "save_load/sunset/thumbnail_idle.png"
-    style.thld_save_load_button_sunset.hover_background = thld_gui_path + "save_load/sunset/thumbnail_hover.png"
-    style.thld_save_load_button_sunset.selected_background = thld_gui_path + "save_load/sunset/thumbnail_selected.png"
-    style.thld_save_load_button_sunset.selected_hover_background = thld_gui_path + "save_load/sunset/thumbnail_selected.png"
-    style.thld_save_load_button_sunset.selected_idle_background = thld_gui_path + "save_load/sunset/thumbnail_selected.png"
+    style.thld_save_load_button_sunset.background = THLD_GUI_PATH + "save_load/sunset/thumbnail_idle.png"
+    style.thld_save_load_button_sunset.hover_background = THLD_GUI_PATH + "save_load/sunset/thumbnail_hover.png"
+    style.thld_save_load_button_sunset.selected_background = THLD_GUI_PATH + "save_load/sunset/thumbnail_selected.png"
+    style.thld_save_load_button_sunset.selected_hover_background = THLD_GUI_PATH + "save_load/sunset/thumbnail_selected.png"
+    style.thld_save_load_button_sunset.selected_idle_background = THLD_GUI_PATH + "save_load/sunset/thumbnail_selected.png"
 
     style.thld_base_font = Style(style.default)
     style.thld_base_font.font = thld_main_font

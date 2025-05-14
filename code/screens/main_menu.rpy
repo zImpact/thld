@@ -30,7 +30,7 @@ screen thld_main_menu():
 
         imagebutton:
             auto "thld_load_button_%s"
-            xalign 0.5 
+            xalign 0.5
             yalign 0.475
             hovered Play("sound_loop", thld_glitch, relative_volume=0.1)
             unhovered Stop("sound_loop")
@@ -42,7 +42,7 @@ screen thld_main_menu():
 
         imagebutton:
             auto "thld_extra_button_%s"
-            xalign 0.5 
+            xalign 0.5
             yalign 0.6
             hovered Play("sound_loop", thld_glitch, relative_volume=0.1)
             unhovered Stop("sound_loop")
@@ -66,7 +66,7 @@ screen thld_main_menu():
 
         imagebutton:
             auto "thld_exit_button_%s"
-            xalign 0.5 
+            xalign 0.5
             yalign 0.85
             hovered Play("sound_loop", thld_glitch, relative_volume=0.1)
             unhovered Stop("sound_loop")
@@ -332,7 +332,7 @@ screen thld_preferences_main_menu():
                 text_style "thld_settings_header_main_menu_preferences"
                 xalign 0.85
                 ypos 600
-                action Preference("skip", "all")    
+                action Preference("skip", "all")
             
         text "Громкость музыки":
             font thld_main_menu_font
@@ -342,9 +342,9 @@ screen thld_preferences_main_menu():
 
         bar:
             value Preference("music volume")
-            right_bar thld_gui_path + "preferences/main_menu/bar_full.png"
+            right_bar THLD_GUI_PATH + "preferences/main_menu/bar_full.png"
             left_bar "thld_main_menu_bar_null_glitched"
-            thumb thld_gui_path + "misc/main_menu_thumb.png"
+            thumb THLD_GUI_PATH + "misc/main_menu_thumb.png"
             xpos 960
             ypos 813
             xmaximum 400
@@ -387,7 +387,12 @@ screen thld_quit_main_menu():
             ypos 600
             hovered Play("sound_loop", thld_glitch, relative_volume=0.1)
             unhovered Stop("sound_loop")
-            action [Stop("sound_loop"), Hide("thld_quit_main_menu"), Function(thld_screens_diact), ShowMenu("main_menu")]
+            action [
+                Stop("sound_loop"),
+                Hide("thld_quit_main_menu"),
+                Function(thld_screens_diact),
+                ShowMenu("main_menu")
+            ]
 
         imagebutton:
             auto "thld_no_button_%s"
@@ -395,4 +400,9 @@ screen thld_quit_main_menu():
             ypos 600
             hovered Play("sound_loop", thld_glitch, relative_volume=0.1)
             unhovered Stop("sound_loop")
-            action [Stop("sound_loop"), SetVariable("thld_main_menu_var", True), Hide("thld_quit_main_menu"), ShowMenu("thld_main_menu")]
+            action [
+                Stop("sound_loop"),
+                SetVariable("thld_main_menu_var", True),
+                Hide("thld_quit_main_menu"),
+                ShowMenu("thld_main_menu")
+            ]

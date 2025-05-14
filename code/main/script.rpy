@@ -50,7 +50,7 @@ init python:
             
         config.main_menu_music = thld_reef_inevitability
         config.linear_saves_page_size = None
-        persistent._file_page = "thld_FilePage_1"  
+        persistent._file_page = "thld_FilePage_1"
 
     def thld_screens_diact():
         config.window_title = u"Бесконечное лето"

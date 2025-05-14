@@ -1,33 +1,28 @@
-init python: 
+init python:
     from os import path
     from random import randint, uniform
     from math import sqrt, pow
 
-    thld_mod_name = "thld"
-    thld_prefix = thld_mod_name + "_"
-
     for file_name in renpy.list_files():
-        if thld_mod_name in file_name:
+        if THLD_MOD_NAME in file_name:
             file_path = path.splitext(path.basename(file_name))[0]
 
-            if file_name.startswith(thld_mod_name + "/images/bg/"):
-                renpy.image("bg " + thld_prefix + file_path, file_name)
+            if file_name.startswith(THLD_MOD_NAME + "/images/bg/"):
+                renpy.image("bg " + THLD_PREFIX + file_path, file_name)
 
-            elif file_name.startswith(thld_mod_name + "/images/sprites/"):
+            elif file_name.startswith(THLD_MOD_NAME + "/images/sprites/"):
                 renpy.image(
-                    thld_prefix + file_path,
+                    THLD_PREFIX + file_path,
                     ConditionSwitch(
-                        "persistent.sprite_time == 'sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)), 
-                        "persistent.sprite_time == 'night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)), 
+                        "persistent.sprite_time=='sunset'", im.MatrixColor(file_name, im.matrix.tint(0.94, 0.82, 1.0)),
+                        "persistent.sprite_time=='night'", im.MatrixColor(file_name, im.matrix.tint(0.63, 0.78, 0.82)),
                         True, file_name
                     )
                 )
 
-            elif file_name.startswith(thld_mod_name + "/sounds/"):
-                globals()[thld_prefix + file_path] = file_name
+            elif file_name.startswith(THLD_MOD_NAME + "/sounds/"):
+                globals()[THLD_PREFIX + file_path] = file_name
 
-    thld_std_set_for_preview = {}
-    thld_std_set = {}
     store.thld_colors = {}
     store.thld_names = {}
     store.thld_names_list = []
@@ -37,77 +32,73 @@ init python:
 
     store.thld_names_list.append("thld_th")
 
-    thld_colors["thld_me"] = {"speaker_color": "#088010"}
+    thld_colors["thld_me"] = {"speaker_color": THLD_PACIFIST_NAME_COLOR}
     thld_names["thld_me"] = "Я"
     store.thld_names_list.append("thld_me")
 
-    thld_colors["thld_pacifist"] = {"speaker_color": "#088010"}
+    thld_colors["thld_pacifist"] = {"speaker_color": THLD_PACIFIST_NAME_COLOR}
     thld_names["thld_pacifist"] = "Пацифист"
     store.thld_names_list.append("thld_pacifist")
 
-    thld_colors["thld_pi_arena"] = {"speaker_color": "#4b0287"}
+    thld_colors["thld_pi_arena"] = {"speaker_color": THLD_PI_ARENA_NAME_COLOR}
     thld_names["thld_pi_arena"] = "Пионер"
     store.thld_names_list.append("thld_pi_arena")
 
-    thld_colors["thld_pi_teapot"] = {"speaker_color": "#551313"}
+    thld_colors["thld_pi_teapot"] = {"speaker_color": THLD_TEAPOT_NAME_COLOR}
     thld_names["thld_pi_teapot"] = "Пионер"
     store.thld_names_list.append("thld_pi_teapot")
 
-    thld_colors["thld_teapot"] = {"speaker_color": "#551313"}
+    thld_colors["thld_teapot"] = {"speaker_color": THLD_TEAPOT_NAME_COLOR}
     thld_names["thld_teapot"] = "Чайник"
     store.thld_names_list.append("thld_teapot")
 
-    thld_colors["thld_pi_railway"] = {"speaker_color": "#e09590"}
+    thld_colors["thld_pi_railway"] = {"speaker_color": THLD_PI_RAILWAY_NAME_COLOR}
     thld_names["thld_pi_railway"] = "Пионер"
     store.thld_names_list.append("thld_pi_railway")
 
-    thld_colors["thld_pi_preacher"] = {"speaker_color": "#f7eded"} 
+    thld_colors["thld_pi_preacher"] = {"speaker_color": THLD_PREACHER_NAME_COLOR} 
     thld_names["thld_pi_preacher"] = "Пионер в халате"
     store.thld_names_list.append("thld_pi_preacher")
 
-    thld_colors["thld_preacher"] = {"speaker_color": "#f7eded"}
+    thld_colors["thld_preacher"] = {"speaker_color": THLD_PREACHER_NAME_COLOR}
     thld_names["thld_preacher"] = "Проповедник"
     store.thld_names_list.append("thld_preacher")
 
-    thld_colors["thld_third"] = {"speaker_color": "#004979"}
+    thld_colors["thld_third"] = {"speaker_color": THLD_THIRD_NAME_COLOR}
     thld_names["thld_third"] = "Третий"
     store.thld_names_list.append("thld_third")
 
-    thld_colors["thld_pi_announcer"] = {"speaker_color": "#af9151"}
+    thld_colors["thld_pi_announcer"] = {"speaker_color": THLD_PI_ANNOUNCER_NAME_COLOR}
     thld_names["thld_pi_announcer"] = "Распорядитель"
     store.thld_names_list.append("thld_pi_announcer")
  
-    thld_colors["thld_pi_butcher"] = {"speaker_color": "#9f9393"} 
+    thld_colors["thld_pi_butcher"] = {"speaker_color": THLD_PI_BUTCHER_NAME_COLOR} 
     thld_names["thld_pi_butcher"] = "Мясник"
     store.thld_names_list.append("thld_pi_butcher")
 
-    thld_colors["thld_nit"] = {"speaker_color": "#9f9393"}
-    thld_names["thld_nit"] = "Ниточник"
-    store.thld_names_list.append("thld_nit")
-
-    thld_colors["thld_pi_pharos"] = {"speaker_color": "#2ad2db"}
+    thld_colors["thld_pi_pharos"] = {"speaker_color": THLD_PI_PHAROS_NAME_COLOR}
     thld_names["thld_pi_pharos"] = "Пионер"
     store.thld_names_list.append("thld_pi_pharos")
 
-    thld_colors["thld_pharos"] = {"speaker_color": "#2ad2db"}
+    thld_colors["thld_pharos"] = {"speaker_color": THLD_PI_PHAROS_NAME_COLOR}
     thld_names["thld_pharos"] = "Маяк"
     store.thld_names_list.append("thld_pharos")
 
-    thld_colors["thld_engi"] = {"speaker_color": "#ba753f"}
+    thld_colors["thld_engi"] = {"speaker_color": THLD_ENGI_NAME_COLOR}
     thld_names["thld_engi"] = "Инженер"
     store.thld_names_list.append("thld_engi")
 
-    thld_colors["thld_gensek"] = {"speaker_color": "#d1d141"}
+    thld_colors["thld_gensek"] = {"speaker_color": THLD_GENSEK_NAME_COLOR}
     thld_names["thld_gensek"] = "Генсек"
     store.thld_names_list.append("thld_gensek")
 
-    thld_colors["thld_crowd"] = {"speaker_color": "#66584d"}
+    thld_colors["thld_crowd"] = {"speaker_color": THLD_CROWD_NAME_COLOR}
     thld_names["thld_crowd"] = "Толпа"
     store.thld_names_list.append("thld_crowd")
 
-    thld_colors["thld_guide"] = {"speaker_color": "#377294"}
-    thld_names["thld_guide"] = "Проводник"
-    store.thld_names_list.append("thld_guide")
+    thld_colors["thld_pi_guide"] = {"speaker_color": THLD_PI_GUIDE_NAME_COLOR}
+    thld_names["thld_pi_guide"] = "Проводник"
+    store.thld_names_list.append("thld_pi_guide")
 
     def thld_char_define(character_name, is_nvl=False):
         global DynamicCharacter
@@ -118,28 +109,56 @@ init python:
         
         if character_name == "thld_narrator":
             if is_nvl:
-                thld_gl["thld_narrator"] = Character(None, kind=nvl, what_style="thld_text_style")
+                thld_gl["thld_narrator"] = Character(
+                    None,
+                    kind=nvl,
+                    what_style="thld_text_style"
+                )
             
             else:
-                thld_gl["thld_narrator"] = Character(None, what_style="thld_text_style")
+                thld_gl["thld_narrator"] = Character(
+                    None,
+                    what_style="thld_text_style"
+                )
             
             return
 
         if character_name == "thld_th":
-            if  is_nvl:
-                thld_gl["thld_th"] = Character(None, kind=nvl, what_style="thld_text_style", what_prefix="~ ", what_suffix=" ~")
+            if is_nvl:
+                thld_gl["thld_th"] = Character(
+                    None,
+                    kind=nvl,
+                    what_style="thld_text_style",
+                    what_prefix="~ ",
+                    what_suffix=" ~"
+                )
             
             else:
-                thld_gl["thld_th"] = Character(None, what_style="thld_text_style", what_prefix="~ ", what_suffix=" ~")
+                thld_gl["thld_th"] = Character(
+                    None,
+                    what_style="thld_text_style",
+                    what_prefix="~ ",
+                    what_suffix=" ~"
+                )
             
             return
         
         if is_nvl:
-            thld_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.thld_colors[character_name][thld_speaker_color], kind=nvl, what_style="thld_text_style", who_suffix=":")
+            thld_gl[character_name] = DynamicCharacter(
+                "%s_name" % character_name,
+                color=store.thld_colors[character_name][thld_speaker_color],
+                kind=nvl,
+                what_style="thld_text_style",
+                who_suffix=":"
+            )
             thld_gl["%s_name" % character_name] = store.thld_names[character_name]
         
         else:
-            thld_gl[character_name] = DynamicCharacter("%s_name" % character_name, color=store.thld_colors[character_name][thld_speaker_color], what_style="thld_text_style")
+            thld_gl[character_name] = DynamicCharacter(
+                "%s_name" % character_name,
+                color=store.thld_colors[character_name][thld_speaker_color],
+                what_style="thld_text_style"
+            )
             thld_gl["%s_name" % character_name] = store.thld_names[character_name]
 
     def thld_set_mode_adv():
@@ -175,8 +194,6 @@ init python:
         for character_name in store.thld_names_list:
             thld_char_define(character_name)
 
-    thld_reload_names()
-
     def thld_onload(type):
         global thld_lock_quit
         global thld_lock_quick_menu
@@ -193,7 +210,7 @@ init python:
             config.allow_skipping = True
 
     def thld_set_timeofday_cursor():
-        config.mouse_displayable = MouseDisplayable(thld_gui_path + "cursors/" + persistent.timeofday + "/cursor.png", 0, 0)
+        config.mouse_displayable = MouseDisplayable(THLD_GUI_PATH + "cursors/" + persistent.timeofday + "/cursor.png", 0, 0)
 
     def thld_set_dynamic_cursor(state):
         if thld_set_timeofday_cursor in config.overlay_functions:
@@ -203,7 +220,7 @@ init python:
             config.overlay_functions.append(thld_set_timeofday_cursor)
 
         elif state == "main_menu":
-            config.mouse_displayable = MouseDisplayable(thld_gui_path + "cursors/main_menu/cursor.png", 0, 0)
+            config.mouse_displayable = MouseDisplayable(THLD_GUI_PATH + "cursors/main_menu/cursor.png", 0, 0)
 
         elif state == "null":
             config.mouse_displayable = MouseDisplayable(Null(0, 0), 0, 0)
@@ -475,7 +492,9 @@ init python:
             return render
 
 init:
-    $ thld_main_menu_font = thld_gui_path + "fonts/gotham_pro_light.ttf"
+    $ thld_reload_names()
+
+    $ thld_main_menu_font = THLD_GUI_PATH + "fonts/gotham_pro_light.ttf"
     $ thld_main_menu_buttons_padding = 20
     $ thld_main_menu_buttons_alpha = 0.6
     $ thld_main_menu_buttons_size = 60
@@ -492,11 +511,11 @@ init:
 
     image thld_blank_skip = renpy.display.behavior.ImageButton(Null(1920, 1080), Null(1920, 1080), clicked=[Jump("thld_after_intro")])
 
-    image thld_intro_logo = thld_gui_path + "misc/intro_logo.png"
-    image thld_main_menu_background = thld_gui_path + "main_menu/main_menu_background.png"
-    image thld_logowhite_idle = thld_gui_path + "misc/logowhite_idle.png"
-    image thld_main_menu_bar_null = thld_gui_path + "preferences/main_menu/bar_null.png"
-    image thld_main_menu_vbar_null = thld_gui_path + "main_menu/vbar_null.png"
+    image thld_intro_logo = THLD_GUI_PATH + "misc/intro_logo.png"
+    image thld_main_menu_background = THLD_GUI_PATH + "main_menu/main_menu_background.png"
+    image thld_logowhite_idle = THLD_GUI_PATH + "misc/logowhite_idle.png"
+    image thld_main_menu_bar_null = THLD_GUI_PATH + "preferences/main_menu/bar_null.png"
+    image thld_main_menu_vbar_null = THLD_GUI_PATH + "main_menu/vbar_null.png"
     image thld_main_menu_options_frame = ThldBlackRectangle(width=1804, height=1028, alpha=0.6)
 
     transform thld_main_menu_particles_anim:
