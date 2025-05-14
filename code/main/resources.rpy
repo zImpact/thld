@@ -56,7 +56,7 @@ init python:
     thld_names["thld_pi_railway"] = "Пионер"
     store.thld_names_list.append("thld_pi_railway")
 
-    thld_colors["thld_pi_preacher"] = {"speaker_color": THLD_PREACHER_NAME_COLOR} 
+    thld_colors["thld_pi_preacher"] = {"speaker_color": THLD_PREACHER_NAME_COLOR}
     thld_names["thld_pi_preacher"] = "Пионер в халате"
     store.thld_names_list.append("thld_pi_preacher")
 
@@ -72,7 +72,7 @@ init python:
     thld_names["thld_pi_announcer"] = "Распорядитель"
     store.thld_names_list.append("thld_pi_announcer")
  
-    thld_colors["thld_pi_butcher"] = {"speaker_color": THLD_PI_BUTCHER_NAME_COLOR} 
+    thld_colors["thld_pi_butcher"] = {"speaker_color": THLD_PI_BUTCHER_NAME_COLOR}
     thld_names["thld_pi_butcher"] = "Мясник"
     store.thld_names_list.append("thld_pi_butcher")
 
@@ -259,7 +259,7 @@ init python:
             self.data = data
             
         def __repr__(self):
-            return repr(self.data) 
+            return repr(self.data)
             
         def __add__(self, other):
             return tuple((a + b for a, b in zip(self.data, other.data)))
@@ -269,15 +269,15 @@ init python:
             
     class ThldSingleDustParticle(renpy.object.Object):
         def __init__(self, sp, fp, t, rt, ft, zoom, alpha, st):
-            self.start_pos = sp 
+            self.start_pos = sp
             self.finish_pos = fp
             self.part_time = t
-            self.rise_time = rt 
-            self.fall_time = ft 
-            self.max_zoom = zoom 
+            self.rise_time = rt
+            self.fall_time = ft
+            self.max_zoom = zoom
             self.max_alpha = alpha
             self.oldst = st
-            self.pos = self.start_pos 
+            self.pos = self.start_pos
             self.zoom = .0
             self.alpha = .0
             
@@ -292,8 +292,8 @@ init python:
             return randint(-100, w + 100), randint(-100, h + 100)
             
         def progress_calc(self, oldst, t, st):
-            target = oldst + t 
-            anim_time = target - st 
+            target = oldst + t
+            anim_time = target - st
             res = 1.0 - anim_time / t
             
             if res < .0:
@@ -306,7 +306,7 @@ init python:
                 return 1.0
             
         def make_particle(self, st=float()):
-            w, h, = self.w, self.h 
+            w, h, = self.w, self.h
             
             start_pos = self.get_rand_cord(w, h)
             finish_pos = self.get_rand_cord(w, h)
@@ -336,9 +336,9 @@ init python:
         def update_particle(self, part_idx, st):
             part = self.particles[part_idx]
             
-            t = part.part_time 
+            t = part.part_time
             rt = part.rise_time
-            ft = part.fall_time 
+            ft = part.fall_time
             
             start_time = part.oldst
             rise_time = start_time + rt
@@ -376,7 +376,7 @@ init python:
                 
                 if 0 < xpos < w and 0 < ypos < h:
                     t = Transform(
-                            child=self.part_img, 
+                            child=self.part_img,
                             alpha=part.alpha,
                             zoom=part.zoom
                             )
@@ -487,7 +487,7 @@ init python:
             self.frame = Solid("#000000", xsize=self.width, ysize=self.height)
 
             render = self.render_frame(self.width, self.height, st, at)
-            render.blit(text_render, (self.width / 2 - text_render.get_size()[0] / 2, 
+            render.blit(text_render, (self.width / 2 - text_render.get_size()[0] / 2,
                                     self.height / 2 - text_render.get_size()[1] / 2))
             return render
 
@@ -561,17 +561,17 @@ init:
         repeat
 
     image thld_main_menu_logo = ThldTextRectangle(
-        padding=thld_main_menu_buttons_padding, 
-        alpha=thld_main_menu_buttons_alpha, 
+        padding=thld_main_menu_buttons_padding,
+        alpha=thld_main_menu_buttons_alpha,
         text="Преддверие",
-        font=thld_main_menu_font, 
+        font=thld_main_menu_font,
         size=100
     )
 
     image thld_start_button_idle = ThldTextRectangle(
-        padding=thld_main_menu_buttons_padding, 
+        padding=thld_main_menu_buttons_padding,
         alpha=thld_main_menu_buttons_alpha,
-        text="Начать игру", 
+        text="Начать игру",
         font=thld_main_menu_font,
         size=thld_main_menu_buttons_size
     )
@@ -584,9 +584,9 @@ init:
         repeat
 
     image thld_load_button_idle = ThldTextRectangle(
-        padding=thld_main_menu_buttons_padding, 
+        padding=thld_main_menu_buttons_padding,
         alpha=thld_main_menu_buttons_alpha,
-        text="Загрузить", 
+        text="Загрузить",
         font=thld_main_menu_font,
         size=thld_main_menu_buttons_size
     )
@@ -599,9 +599,9 @@ init:
         repeat
 
     image thld_extra_button_idle = ThldTextRectangle(
-        padding=thld_main_menu_buttons_padding, 
+        padding=thld_main_menu_buttons_padding,
         alpha=thld_main_menu_buttons_alpha,
-        text="Дополнительно", 
+        text="Дополнительно",
         font=thld_main_menu_font,
         size=thld_main_menu_buttons_size
     )
@@ -614,9 +614,9 @@ init:
         repeat
 
     image thld_preferences_button_idle = ThldTextRectangle(
-        padding=thld_main_menu_buttons_padding, 
+        padding=thld_main_menu_buttons_padding,
         alpha=thld_main_menu_buttons_alpha,
-        text="Настройки", 
+        text="Настройки",
         font=thld_main_menu_font,
         size=thld_main_menu_buttons_size
     )
@@ -629,9 +629,9 @@ init:
         repeat
 
     image thld_exit_button_idle = ThldTextRectangle(
-        padding=thld_main_menu_buttons_padding, 
+        padding=thld_main_menu_buttons_padding,
         alpha=thld_main_menu_buttons_alpha,
-        text="Выход", 
+        text="Выход",
         font=thld_main_menu_font,
         size=thld_main_menu_buttons_size
     )

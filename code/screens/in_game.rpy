@@ -13,10 +13,10 @@ screen thld_preferences():
             color "#ffffff"
 
         textbutton "Назад":
-            style "thld_log_button" 
-            text_style "thld_settings_link" 
-            xalign 0.015 
-            yalign 0.92 
+            style "thld_log_button"
+            text_style "thld_settings_link"
+            xalign 0.015
+            yalign 0.92
             action Return()
 
         side "c b r":
@@ -39,7 +39,7 @@ screen thld_preferences():
                         else:
                             null width 22
 
-                        textbutton "Во весь экран": 
+                        textbutton "Во весь экран":
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("display", "fullscreen")
@@ -51,7 +51,7 @@ screen thld_preferences():
                         else:
                             null width 22
 
-                        textbutton "В окне": 
+                        textbutton "В окне":
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("display", "window")
@@ -68,8 +68,8 @@ screen thld_preferences():
                         else:
                             null width 22
 
-                        textbutton "Всё": 
-                            style "thld_log_button" 
+                        textbutton "Всё":
+                            style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("skip", "all")
 
@@ -80,17 +80,17 @@ screen thld_preferences():
                         else:
                             null width 22
 
-                        textbutton "Виденное ранее": 
-                            style "thld_log_button" 
+                        textbutton "Виденное ранее":
+                            style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("skip", "seen")
 
                 text "Громкость":
-                    style "thld_settings_header_" + persistent.timeofday                   
+                    style "thld_settings_header_" + persistent.timeofday
                     xalign 0.5
 
                 grid 2 1 xfill True:
-                    textbutton "Музыка": 
+                    textbutton "Музыка":
                         style "thld_log_button"
                         text_style "thld_settings_text_" + persistent.timeofday
                         action NullAction()
@@ -98,60 +98,60 @@ screen thld_preferences():
 
                     bar:
                         value Preference("music volume")
-                        left_bar thld_bar_full 
-                        right_bar thld_bar_null 
-                        thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                        hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                        xmaximum 1.35 
-                        ymaximum 36 
-                        xpos -0.55
-
-                grid 2 1 xfill True:
-                    textbutton "Звуки": 
-                        style "thld_log_button"
-                        text_style "thld_settings_text_" + persistent.timeofday
-                        action NullAction()
-                        xpos 0.1
-
-                    bar: 
-                        value Preference("sound volume") 
-                        left_bar thld_bar_full 
-                        right_bar thld_bar_null 
-                        thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                        hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                        xmaximum 1.35 
+                        left_bar thld_bar_full
+                        right_bar thld_bar_null
+                        thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                        hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                        xmaximum 1.35
                         ymaximum 36
                         xpos -0.55
 
                 grid 2 1 xfill True:
-                    textbutton "Эмбиент": 
+                    textbutton "Звуки":
                         style "thld_log_button"
                         text_style "thld_settings_text_" + persistent.timeofday
                         action NullAction()
                         xpos 0.1
 
-                    bar: 
-                        value Preference("voice volume") 
-                        left_bar thld_bar_full 
-                        right_bar thld_bar_null 
-                        thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                        hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                        xmaximum 1.35 
-                        ymaximum 36 
+                    bar:
+                        value Preference("sound volume")
+                        left_bar thld_bar_full
+                        right_bar thld_bar_null
+                        thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                        hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                        xmaximum 1.35
+                        ymaximum 36
+                        xpos -0.55
+
+                grid 2 1 xfill True:
+                    textbutton "Эмбиент":
+                        style "thld_log_button"
+                        text_style "thld_settings_text_" + persistent.timeofday
+                        action NullAction()
+                        xpos 0.1
+
+                    bar:
+                        value Preference("voice volume")
+                        left_bar thld_bar_full
+                        right_bar thld_bar_null
+                        thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                        hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                        xmaximum 1.35
+                        ymaximum 36
                         xpos -0.55
 
                 text "Скорость текста":
                     style "thld_settings_header_" + persistent.timeofday
                     xalign 0.5
 
-                bar: 
-                    value Preference("text speed") 
-                    left_bar thld_bar_full 
-                    right_bar thld_bar_null 
-                    thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                    hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                    xalign 0.5 
-                    xmaximum 0.8 
+                bar:
+                    value Preference("text speed")
+                    left_bar thld_bar_full
+                    right_bar thld_bar_null
+                    thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                    hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                    xalign 0.5
+                    xmaximum 0.8
                     ymaximum 36
 
                 text "Автопереход":
@@ -166,7 +166,7 @@ screen thld_preferences():
                         else:
                             null width 22
 
-                        textbutton "Включить": 
+                        textbutton "Включить":
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action Preference("auto-forward after click", "enable")
@@ -178,7 +178,7 @@ screen thld_preferences():
                         else:
                             null width 22
 
-                        textbutton "Выключить": 
+                        textbutton "Выключить":
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action (Preference("auto-forward time", 0), Preference("auto-forward after click", "disable"))
@@ -187,14 +187,14 @@ screen thld_preferences():
                     style "thld_settings_header_" + persistent.timeofday
                     xalign 0.5
 
-                bar: 
-                    value Preference("auto-forward time") 
-                    left_bar thld_bar_full 
-                    right_bar thld_bar_null 
-                    thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                    hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png" 
-                    xalign 0.5 
-                    xmaximum 0.8 
+                bar:
+                    value Preference("auto-forward time")
+                    left_bar thld_bar_full
+                    right_bar thld_bar_null
+                    thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                    hover_thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/htumb.png"
+                    xalign 0.5
+                    xmaximum 0.8
                     ymaximum 36
 
                 text "Размер шрифта":
@@ -221,23 +221,23 @@ screen thld_preferences():
                         else:
                             null width 22
 
-                        textbutton "Крупный": 
+                        textbutton "Крупный":
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
                             action SetField(persistent, "font_size", "large")
 
-            bar: 
-                value XScrollValue("preferences") 
-                left_bar "images/misc/none.png" 
-                right_bar "images/misc/none.png" 
-                thumb "images/misc/none.png" 
+            bar:
+                value XScrollValue("preferences")
+                left_bar "images/misc/none.png"
+                right_bar "images/misc/none.png"
+                thumb "images/misc/none.png"
                 hover_thumb "images/misc/none.png"
 
-            vbar: 
-                value YScrollValue("preferences") 
-                bottom_bar "images/misc/none.png" 
-                top_bar "images/misc/none.png" 
-                thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/vthumb.png" 
+            vbar:
+                value YScrollValue("preferences")
+                bottom_bar "images/misc/none.png"
+                top_bar "images/misc/none.png"
+                thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/vthumb.png"
                 thumb_offset -12
 
 screen thld_save():
@@ -245,34 +245,34 @@ screen thld_save():
     modal True
     
     window background THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png":
-        text "Сохранение": 
-            style "thld_settings_link" 
-            xalign 0.5 
-            yalign 0.08 
+        text "Сохранение":
+            style "thld_settings_link"
+            xalign 0.5
+            yalign 0.08
             color "#ffffff"
 
-        textbutton "Назад": 
-            style "thld_log_button" 
-            text_style "thld_settings_link" 
-            xalign 0.015 
-            yalign 0.92 
+        textbutton "Назад":
+            style "thld_log_button"
+            text_style "thld_settings_link"
+            xalign 0.015
+            yalign 0.92
             action Return()
 
-        textbutton "Сохранить": 
-            style "thld_log_button" 
+        textbutton "Сохранить":
+            style "thld_log_button"
             text_style "thld_settings_link"
-            yalign 0.92 
-            xalign 0.5 
+            yalign 0.92
+            xalign 0.5
             action [
                 ThldFunctionCallback(thld_on_save_callback, selected_slot),
                 FileSave(selected_slot)
             ]
 
-        textbutton "Удалить": 
-            style "thld_log_button" 
-            text_style "thld_settings_link" 
-            yalign 0.92 
-            xalign 0.97 
+        textbutton "Удалить":
+            style "thld_log_button"
+            text_style "thld_settings_link"
+            yalign 0.92
+            xalign 0.97
             action FileDelete(selected_slot)
 
         grid 4 3 xpos 0.108 ypos 0.2 xmaximum 0.81 ymaximum 0.65:
@@ -297,31 +297,31 @@ screen thld_load():
     modal True
     
     window background THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png":
-        text "Загрузка": 
-            style "thld_settings_link" 
-            xalign 0.5 
-            yalign 0.08 
+        text "Загрузка":
+            style "thld_settings_link"
+            xalign 0.5
+            yalign 0.08
             color "#ffffff"
 
-        textbutton "Назад": 
-            style "thld_log_button" 
-            text_style "thld_settings_link" 
-            xalign 0.015 
-            yalign 0.92 
+        textbutton "Назад":
+            style "thld_log_button"
+            text_style "thld_settings_link"
+            xalign 0.015
+            yalign 0.92
             action Return()
 
-        textbutton "Загрузить": 
-            style "thld_log_button" 
-            text_style "thld_settings_link" 
-            yalign 0.92 
+        textbutton "Загрузить":
+            style "thld_log_button"
+            text_style "thld_settings_link"
+            yalign 0.92
             xalign 0.5
             action [
                 ThldFunctionCallback(thld_on_load_callback, selected_slot),
                 FileLoad(selected_slot, confirm=False)
             ]
-            
-        textbutton "Удалить": 
-            style "thld_log_button" 
+
+        textbutton "Удалить":
+            style "thld_log_button"
             text_style "thld_settings_link"
             yalign 0.92
             xalign 0.97 
