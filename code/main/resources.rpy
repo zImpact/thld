@@ -72,9 +72,9 @@ init python:
     thld_names["thld_pi_announcer"] = "Распорядитель"
     store.thld_names_list.append("thld_pi_announcer")
  
-    thld_colors["thld_pi_butcher"] = {"speaker_color": THLD_PI_BUTCHER_NAME_COLOR}
-    thld_names["thld_pi_butcher"] = "Мясник"
-    store.thld_names_list.append("thld_pi_butcher")
+    thld_colors["thld_butcher"] = {"speaker_color": THLD_BUTCHER_NAME_COLOR}
+    thld_names["thld_butcher"] = "Мясник"
+    store.thld_names_list.append("thld_butcher")
 
     thld_colors["thld_pi_pharos"] = {"speaker_color": THLD_PI_PHAROS_NAME_COLOR}
     thld_names["thld_pi_pharos"] = "Пионер"

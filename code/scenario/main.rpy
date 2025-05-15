@@ -96,7 +96,7 @@ label thld_scenario:
     thld_narrator "На лбу выступил холодный пот."
     thld_th "Надо бежать отсюда, плевать на правила, плевать что будет! {w}Надо просто БЕЖАТЬ!"
     thld_narrator "Но тело не слушалось. {w}Ноги будто вросли в землю."
-    show thld_mad smile with dissolve
+    show thld_butcher smile with dissolve
     thld_narrator "Мясник занял место напротив меня."
     thld_pi_announcer "Три!"
     thld_narrator "Он больше ничего не говорил. Просто смотрел прямо мне в глаза и скалился."
@@ -792,31 +792,31 @@ label thld_scenario:
     scene bg thld_ext_tribune_night with Dissolve(1)
     thld_narrator "Не знаю зачем я снова сюда пришёл. За очередной порцией ночных кошмаров?" 
     thld_narrator "Вероятнее всего мне просто стало тоскливо, что завтра начнётся новый цикл и окружающий меня мир просто забудет обо всём, что случилось за эти семь дней."
-    show thld_mad smile at center with dissolve
+    show thld_butcher smile at center with dissolve
     thld_pi_butcher "О! Я тебя помню! Беглец! У тебя всё же хватило мужества вернуться и нормально умереть!"
-    show thld_mad smile:
+    show thld_butcher smile:
         xcenter 0.5
         ease 0.5 zoom 1.05
     thld_narrator "Ко мне стремительно приближался тот псих с осколком стекла от которого мне удалось убежать в прошлый раз." 
     thld_narrator "Всё моё естество кричало о том, что бить не вариант. Нужно бежать. Колени задрожали, ладони мгновенно вспотели." 
     thld_narrator "Я оглянулся на Чайника. Тот лишь внимательно наблюдал за мной."
     thld_narrator "Возможно мне показалось, возможно я просто увидел то, что хотел, но всего в одно беглое мгновение мой спутник одобрительно кивнул."
-    show thld_mad smile:
+    show thld_butcher smile:
         xcenter 0.5
         ease 0.5 zoom 1.1
     thld_narrator "Я не стал бежать. Повернув голову я посмотрел прямо в глаза того, кто по всей видимости, намеревался убить меня прямо здесь и прямо сейчас."
-    show thld_mad smile:
+    show thld_butcher smile:
         xcenter 0.5
         ease 0.5 zoom 1.15
     thld_narrator "Он остановился в метре от меня. На его губах переливалась отвратительными полутонами ехидная ухмылка."
     $ renpy.pause(1, hard=True)
-    show thld_mad normal with dspr
+    show thld_butcher normal with dspr
     thld_narrator "Спустя несколько секунд непрерывного зрительного контакта он вдруг перестал улыбаться." 
     thld_narrator "Видимо, он ожидал от меня другой реакции." 
     thld_pi_butcher "И когда ты успел стать таким смелым?" 
     thld_me "Вчера. {w}И я не буду участвовать в вашей бойне."
     thld_narrator "Вдруг я ощутил резкое отвращение к самой идее насилия."
-    show thld_mad smile with dspr
+    show thld_butcher smile with dspr
     thld_narrator "Лицо моего визави просветлело."
     thld_pi_butcher "Ну и хорошо. Ты выйдешь на бой, а там я тебя безучастно убью. И живи себе завтра спокойно."
     thld_me "Мне кажется я достаточно ясно выразился, но повторю ещё раз. Я не выйду на это поле, чтобы убивать. Ни сегодня, ни завтра, ни когда-либо ещё." 
@@ -825,14 +825,14 @@ label thld_scenario:
     show thld_pharos pos1 normal with dspr:
         xcenter -0.3 ycenter 0.5 blur 8 alpha 0
         ease 1.5 xcenter 0.3 blur 0 alpha 1
-    show thld_mad smile:
+    show thld_butcher smile:
         ease 1.5 xcenter 0.75
     $ renpy.pause(1.5, hard=True)
     thld_pi_pharos "Не трус. Скорее, пацифист."
     thld_narrator "Неожиданно в разговор вмешался знакомый мне пионер." 
     thld_narrator "Сперва я не узнал его, пока не заметил ключ на шее. Это же Маяк! Правая рука Проповедника!" 
     thld_pharos "Если тебе так не хватает крови, то на бой выйду я. Как раз пришёл размяться."
-    show thld_mad normal with dspr
+    show thld_butcher normal with dspr
     thld_narrator "Лицо Мясника покраснело от злости." 
     thld_pi_butcher "Ты меня за идиота держишь? Я не продержусь против тебя и минуты." 
     thld_narrator "Маяк кивнул в мою сторону." 
@@ -851,7 +851,7 @@ label thld_scenario:
     thld_th "Не к добру всё это."
     show thld_pharos pos1 normal with dspr
     thld_pi_butcher "Вечный цикл! Я вам это припомню! А особенно тебе... Пацифист."
-    show thld_mad normal:
+    show thld_butcher normal:
         xcenter 0.75 zoom 1.15 blur 0 alpha 1
         ease 1.5 xcenter 1.3 blur 8 alpha 0
     $ renpy.pause(1.5, hard=True)
@@ -1369,8 +1369,8 @@ label thld_scenario:
     thld_narrator "Одна фигура, ходившая между рабочих мест в мастерской, остановилась и вдруг посмотрела прямо на меня."
     thld_narrator "Даже не могу сказать точно, как именно я узнал Маяка. Только неосязаемая аура спокойствия и уверенности дала мне понять, что это он."
     thld_narrator "Он помахал мне рукой."
-    thld_guide "Похоже, тебя зовут."
-    thld_guide "Не заставляй Маяка ждать. Удачи, брат!"
+    thld_pi_guide "Похоже, тебя зовут."
+    thld_pi_guide "Не заставляй Маяка ждать. Удачи, брат!"
     thld_pharos "Рад тебя видеть!"
     thld_narrator "Маяк тепло хлопнул меня по плечу."
     thld_me "И я..."
@@ -1500,9 +1500,9 @@ label thld_scenario:
     thld_narrator "Я, сглотнув слюну, кивнул."
     thld_pharos "Отлично."
     thld_narrator "Когда Пионер приблизился к библиотеке, Маяк спрыгнул с крыши вниз."
-    thld_mad "Ты!"
+    thld_butcher "Ты!"
     thld_narrator "За Маяком спрыгнул я."
-    thld_mad "{b}ТЫ!{/b}"
+    thld_butcher "{b}ТЫ!{/b}"
     thld_narrator "Вена на лбу Мясника вспучилась от злости."
     thld_narrator "В руках садиста был нож, вымазанный кровью. {w}Разных оттенков."
     thld_narrator "Ждал кого-то еще?"

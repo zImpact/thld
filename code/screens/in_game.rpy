@@ -324,7 +324,7 @@ screen thld_load():
             style "thld_log_button"
             text_style "thld_settings_link"
             yalign 0.92
-            xalign 0.97 
+            xalign 0.97
             action FileDelete(selected_slot)
 
         grid 4 3 xpos 0.108 ypos 0.2 xmaximum 0.81 ymaximum 0.65:
