@@ -435,8 +435,8 @@ screen thld_say(what, who):
 
             text what:
                 id "what" 
-                xpos 194 
-                ypos 914 
+                xpos 194
+                ypos 914
                 xmaximum 1541 
                 size 30
                 line_spacing 1
