@@ -4,7 +4,7 @@ screen thld_main_menu():
 
     key "game_menu":
         action NullAction()
-        
+
     key "K_F1":
         action NullAction()
 
@@ -86,13 +86,13 @@ screen thld_main_menu():
 
 screen thld_load_main_menu():
     modal True
-    
+
     key "K_F1":
         action NullAction()
-    
+
     if not thld_main_menu_var:
         add "thld_main_menu_options_frame" xalign 0.5 yalign 0.5
-            
+
         text "Загрузка":
             font thld_main_menu_font
             size 90
@@ -126,7 +126,7 @@ screen thld_load_main_menu():
                     ThldFunctionCallback(thld_on_load_callback, selected_slot),
                     FileLoad(selected_slot, confirm=False)
                 ]
-                        
+  
             imagebutton:
                 auto "thld_delete_button_%s"
                 xalign 0.9
@@ -152,7 +152,7 @@ screen thld_load_main_menu():
                 size 60
                 xalign 0.9
                 ypos 970
-            
+
         grid 4 3:
             xpos 0.11
             ypos 0.2
@@ -236,13 +236,13 @@ screen thld_extra():
 
 screen thld_preferences_main_menu():
     modal True
-    
+
     key "K_F1":
         action NullAction()
-    
+
     if not thld_main_menu_var:
         add "thld_main_menu_options_frame" xalign 0.5 yalign 0.5
-        
+
         text "Настройки":
             font thld_main_menu_font
             size 90
@@ -256,14 +256,14 @@ screen thld_preferences_main_menu():
             size 60
             xalign 0.5
             ypos 200
-            
+
         textbutton "Во весь экран":
             style "thld_button_none"
             text_style "thld_settings_header_main_menu_preferences"
             xalign 0.15
             ypos 280
             action Preference("display", "fullscreen")
-            
+
         textbutton "В окне":
             style "thld_button_none"
             text_style "thld_settings_header_main_menu_preferences"
@@ -283,21 +283,21 @@ screen thld_preferences_main_menu():
             size 60
             xalign 0.5
             ypos 360
-                
+
         textbutton "Обычный":
             style "thld_button_none"
             text_style "thld_settings_header_main_menu_preferences"
             xalign 0.15
             ypos 440
             action SetField(persistent, "font_size", "small")
-                
+ 
         textbutton "Крупный":
             style "thld_button_none"
             text_style "thld_settings_header_main_menu_preferences"
             xalign 0.85
             ypos 440
             action SetField(persistent, "font_size", "large")
-                
+
         text "Пропускать":
             font thld_main_menu_font
             size 60
@@ -318,7 +318,7 @@ screen thld_preferences_main_menu():
                 xalign 0.85
                 ypos 600
                 action Preference("skip", "all")
-                            
+          
         if _preferences.skip_unseen:
             textbutton "Виденное ранее":
                 style "thld_button_none"
@@ -333,7 +333,7 @@ screen thld_preferences_main_menu():
                 xalign 0.85
                 ypos 600
                 action Preference("skip", "all")
-            
+
         text "Громкость музыки":
             font thld_main_menu_font
             size 60

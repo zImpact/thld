@@ -71,7 +71,7 @@ init python:
     thld_colors["thld_pi_announcer"] = {"speaker_color": THLD_PI_ANNOUNCER_NAME_COLOR}
     thld_names["thld_pi_announcer"] = "Распорядитель"
     store.thld_names_list.append("thld_pi_announcer")
- 
+
     thld_colors["thld_butcher"] = {"speaker_color": THLD_BUTCHER_NAME_COLOR}
     thld_names["thld_butcher"] = "Мясник"
     store.thld_names_list.append("thld_butcher")
@@ -106,7 +106,7 @@ init python:
         global thld_store
         global thld_speaker_color
         thld_gl = globals()
-        
+
         if character_name == "thld_narrator":
             if is_nvl:
                 thld_gl["thld_narrator"] = Character(
@@ -114,13 +114,13 @@ init python:
                     kind=nvl,
                     what_style="thld_text_style"
                 )
-            
+
             else:
                 thld_gl["thld_narrator"] = Character(
                     None,
                     what_style="thld_text_style"
                 )
-            
+
             return
 
         if character_name == "thld_th":
@@ -132,7 +132,7 @@ init python:
                     what_prefix="~ ",
                     what_suffix=" ~"
                 )
-            
+
             else:
                 thld_gl["thld_th"] = Character(
                     None,
@@ -140,9 +140,9 @@ init python:
                     what_prefix="~ ",
                     what_suffix=" ~"
                 )
-            
+
             return
-        
+
         if is_nvl:
             thld_gl[character_name] = DynamicCharacter(
                 "%s_name" % character_name,
@@ -152,7 +152,7 @@ init python:
                 who_suffix=":"
             )
             thld_gl["%s_name" % character_name] = store.thld_names[character_name]
-        
+
         else:
             thld_gl[character_name] = DynamicCharacter(
                 "%s_name" % character_name,
@@ -163,34 +163,34 @@ init python:
 
     def thld_set_mode_adv():
         nvl_clear()
-        
+
         global menu
         menu = renpy.display_menu
-        
+
         global thld_store
-        
+
         for character_name in store.thld_names_list:
             thld_char_define(character_name)
 
     def thld_set_mode_nvl():
         nvl_clear()
-        
+
         global menu
         menu = nvl_menu
-        
+
         global thld_narrator
         global thld_th
         thld_narrator_nvl = thld_narrator
         th_nvl = thld_th
-        
+
         global thld_store
-        
+
         for character_name in store.thld_names_list:
             thld_char_define(character_name, True)
 
     def thld_reload_names():
         global thld_store
-        
+
         for character_name in store.thld_names_list:
             thld_char_define(character_name)
 
@@ -253,20 +253,20 @@ init python:
         initial_xoffset = pos[0] + zoom_xoffset
         initial_yoffset = pos[1] + zoom_yoffset
         return initial_xoffset, initial_yoffset
-    
+
     class ThldVector(renpy.object.Object):
         def __init__(self, *data):
             self.data = data
-            
+
         def __repr__(self):
             return repr(self.data)
-            
+
         def __add__(self, other):
             return tuple((a + b for a, b in zip(self.data, other.data)))
-            
+
         def __sub__(self, other):
             return tuple((a - b for a, b in zip(self.data, other.data)))
-            
+
     class ThldSingleDustParticle(renpy.object.Object):
         def __init__(self, sp, fp, t, rt, ft, zoom, alpha, st):
             self.start_pos = sp
@@ -280,22 +280,22 @@ init python:
             self.pos = self.start_pos
             self.zoom = .0
             self.alpha = .0
-            
+
     class ThldDustParticles(renpy.Displayable, NoRollback):
         def __init__(self, part_img, parts_count=300):
             super(ThldDustParticles, self).__init__()
             self.part_img = renpy.displayable(part_img)
             self.w, self.h = (config.screen_width, config.screen_height)
             self.particles = [self.make_particle() for i in xrange(parts_count)]
-            
+
         def get_rand_cord(self, w, h):
             return randint(-100, w + 100), randint(-100, h + 100)
-            
+
         def progress_calc(self, oldst, t, st):
             target = oldst + t
             anim_time = target - st
             res = 1.0 - anim_time / t
-            
+
             if res < .0:
                 return .0
 
@@ -304,23 +304,23 @@ init python:
 
             else:
                 return 1.0
-            
+
         def make_particle(self, st=float()):
             w, h, = self.w, self.h
-            
+
             start_pos = self.get_rand_cord(w, h)
             finish_pos = self.get_rand_cord(w, h)
             xdist, ydist = ThldVector(*finish_pos) - ThldVector(*start_pos)
-            
+
             speed = uniform(110, 130)
-            
+
             part_time = sqrt(pow(xdist, 2) + pow(ydist, 2)) / speed
             rise_time = part_time * uniform(.1, .25)
             fall_time = part_time * uniform(.1, .25)
-            
+
             max_alpha = uniform(.25, .75)
             max_zoom = uniform(.25, .75)
-            
+
             part = ThldSingleDustParticle(
                             start_pos,
                             finish_pos,
@@ -332,58 +332,58 @@ init python:
                             st
                             )
             return part
-            
+
         def update_particle(self, part_idx, st):
             part = self.particles[part_idx]
-            
+
             t = part.part_time
             rt = part.rise_time
             ft = part.fall_time
-            
+
             start_time = part.oldst
             rise_time = start_time + rt
             fall_time = start_time + t - ft
-            
+
             anim_progress = self.progress_calc(start_time, t, st)
             rise_progress = self.progress_calc(rise_time, rt, st)
             fall_progress = self.progress_calc(fall_time, ft, st)
-            
+
             rise_vs_fall = rise_progress - fall_progress
-            
+
             part.pos = renpy.atl.interpolate(
                                         anim_progress,
                                         part.start_pos,
                                         part.finish_pos,
                                         (int, int)
                                         )
-            
+
             part.alpha = part.max_alpha * rise_vs_fall
             part.zoom = part.max_zoom * rise_vs_fall
-            
+
             if anim_progress >= 1.0:
                 self.particles.pop(part_idx)
                 self.particles.append(self.make_particle(st))
-        
+
         def visit(self):
             return [self.part_img for i in self.particles]
-            
+
         def render(self, w, h, st, at):
             rv = renpy.Render(w, h)
-            
+
             for idx, part in enumerate(self.particles):
                 self.update_particle(idx, st)
                 xpos, ypos = part.pos
-                
+
                 if 0 < xpos < w and 0 < ypos < h:
                     t = Transform(
                             child=self.part_img,
                             alpha=part.alpha,
                             zoom=part.zoom
                             )
-                
+
                     tr = t.render(w, h, st, at)
                     rv.blit(tr, (xpos, ypos))
-                
+
             renpy.redraw(self, .0)
             return rv
 

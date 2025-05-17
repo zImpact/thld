@@ -1,7 +1,7 @@
 screen thld_preferences():
     tag menu
     modal True
-    
+
     $ thld_bar_null = Frame((THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/bar_null.png"), 36, 36)
     $ thld_bar_full = Frame((THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/bar_full.png"), 36, 36)
 
@@ -256,7 +256,7 @@ screen thld_preferences():
 screen thld_save():
     tag menu
     modal True
-    
+
     window:
         background THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png"
 
@@ -315,11 +315,11 @@ screen thld_save():
                             style "file_picker_text"
                             xpos 15
                             ypos 15
-    
+
 screen thld_load():
     tag menu
     modal True
-    
+
     window:
         background THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png"
 
@@ -377,9 +377,9 @@ screen thld_load():
                         text "%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" +FileSaveName(i):
                             style "file_picker_text"
                             xpos 15
-                            ypos 15                  
-                                
-screen thld_say(what, who):    
+                            ypos 15
+
+screen thld_say(what, who):
     window:
         background None
         id "window"
@@ -390,9 +390,9 @@ screen thld_say(what, who):
                 ypos 866
 
             imagebutton:
-                auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/hide_%s.png" 
-                xpos 1508 
-                ypos 883 
+                auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/hide_%s.png"
+                xpos 1508
+                ypos 883
                 action HideInterface()
 
             imagebutton:
@@ -403,50 +403,50 @@ screen thld_say(what, who):
 
             imagebutton:
                 auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/menu_%s.png"
-                xpos 1625 
-                ypos 883 
+                xpos 1625
+                ypos 883
                 action ShowMenu("thld_game_menu_selector")
 
             imagebutton:
                 auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/load_%s.png"
-                xpos 1682 
-                ypos 883 
+                xpos 1682
+                ypos 883
                 action ShowMenu("thld_load")
 
             imagebutton:
-                auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/backward_%s.png" 
-                xpos 38 
-                ypos 924 
+                auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/backward_%s.png"
+                xpos 38
+                ypos 924
                 action ShowMenu("thld_text_history")
 
             if not config.skipping:
                 imagebutton:
                     auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/forward_%s.png"
-                    xpos 1768 
-                    ypos 924 
+                    xpos 1768
+                    ypos 924
                     action Skip()
 
             else:
-                imagebutton: 
+                imagebutton:
                     auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/fast_forward_%s.png"
-                    xpos 1768 
-                    ypos 924 
+                    xpos 1768
+                    ypos 924
                     action Skip()
 
             text what:
-                id "what" 
+                id "what"
                 xpos 194
                 ypos 914
-                xmaximum 1541 
+                xmaximum 1541
                 size 30
                 line_spacing 1
 
             if who:
                 text who:
-                    id "who" 
-                    xpos 194 
-                    ypos 877 
-                    size 35 
+                    id "who"
+                    xpos 194
+                    ypos 877
+                    size 35
                     line_spacing 1
 
         elif persistent.font_size == "small":
@@ -479,39 +479,39 @@ screen thld_say(what, who):
                 action ShowMenu("thld_load")
 
             imagebutton:
-                auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/backward_%s.png" 
-                xpos 38 
-                ypos 949 
+                auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/backward_%s.png"
+                xpos 38
+                ypos 949
                 action ShowMenu("thld_text_history")
 
             if not config.skipping:
                 imagebutton:
                     auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/forward_%s.png"
-                    xpos 1768 
-                    ypos 949 
+                    xpos 1768
+                    ypos 949
                     action Skip()
 
             else:
                 imagebutton:
                     auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/fast_forward_%s.png"
-                    xpos 1768 
-                    ypos 949 
+                    xpos 1768
+                    ypos 949
                     action Skip()
 
             text what:
-                id "what" 
-                xpos 194 
-                ypos 964 
-                xmaximum 1541 
+                id "what"
+                xpos 194
+                ypos 964
+                xmaximum 1541
                 size 25
                 line_spacing 2
 
             if who:
                 text who:
-                    id "who" 
-                    xpos 194 
-                    ypos 931 
-                    size 28 
+                    id "who"
+                    xpos 194
+                    ypos 931
+                    size 28
                     line_spacing 2
 
 screen thld_nvl(items, dialogue):
@@ -534,22 +534,22 @@ screen thld_nvl(items, dialogue):
 
                 if persistent.font_size == "large":
                     if who is not None:
-                        text who: 
-                            id who_id 
+                        text who:
+                            id who_id
                             size 35
 
                     text what:
-                        id what_id 
+                        id what_id
                         size 35
 
                 elif persistent.font_size == "small":
                     if who is not None:
-                        text who: 
-                            id who_id 
+                        text who:
+                            id who_id
                             size 28
 
                     text what:
-                        id what_id 
+                        id what_id
                         size 28
 
         if items:
@@ -570,7 +570,7 @@ screen thld_nvl(items, dialogue):
 
     imagebutton:
         auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/backward_%s.png"
-        xpos 38 
+        xpos 38
         ypos 924
         action ShowMenu("thld_text_history")
 
@@ -649,7 +649,7 @@ screen thld_quit():
 
     else:
         add THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png"
-            
+
         text "Вы действительно \nхотите выйти?":
             font thld_link_font
             size 100
@@ -658,7 +658,7 @@ screen thld_quit():
             yalign 0.33
             antialias True
             kerning 2
-            
+
         textbutton "Да":
             style "thld_settings_header_quit"
             text_style "thld_settings_header_quit"
@@ -668,7 +668,7 @@ screen thld_quit():
                 Function(thld_screens_diact),
                 ShowMenu("main_menu")
             ]
-            
+
         textbutton "Нет":
             style "thld_settings_header_quit"
             text_style "thld_settings_header_quit"
@@ -686,26 +686,26 @@ screen thld_yesno_prompt(yes_action, message, no_action):
 
     text _(message):
         font thld_header_font
-        text_align 0.5 
-        yalign 0.46 
+        text_align 0.5
+        yalign 0.46
         xalign 0.5
         color THLD_YESNO_PROMPT_MESSAGE_COLOR[persistent.timeofday]
         size 30
 
-    textbutton "Да": 
-        text_size 60 
-        style "thld_log_button" 
-        text_style "thld_settings_link" 
-        yalign 0.65 
-        xalign 0.3 
+    textbutton "Да":
+        text_size 60
+        style "thld_log_button"
+        text_style "thld_settings_link"
+        yalign 0.65
+        xalign 0.3
         action yes_action
 
-    textbutton "Нет": 
-        text_size 60 
-        style "thld_log_button" 
-        text_style "thld_settings_link" 
-        yalign 0.65 
-        xalign 0.7 
+    textbutton "Нет":
+        text_size 60
+        style "thld_log_button"
+        text_style "thld_settings_link"
+        yalign 0.65
+        xalign 0.7
         action no_action
 
 screen thld_text_history():
@@ -757,25 +757,25 @@ screen thld_text_history():
                         xpos xposition
                         xalign 0.0
                         size history_name_size
-                        
+
                         if "color" in h.who_args:
                             color h.who_args["color"]
 
                 textbutton h.what:
                     text_size history_text_size
-                    style "thld_log_button" 
-                    text_style "thld_text_history" 
-                    xpos 100                    
+                    style "thld_log_button"
+                    text_style "thld_text_history"
+                    xpos 100
                     xmaximum xmax
                     text_hover_color THLD_TEXT_HISTORY_WHAT_COLOR_HOVER[persistent.timeofday]
-                    action RollbackToIdentifier(h.rollback_identifier) 
-        
+                    action RollbackToIdentifier(h.rollback_identifier)
+
         vbar:
             value YScrollValue("thld_text_history_screen")
             bottom_bar "images/misc/none.png"
             top_bar "images/misc/none.png"
             thumb THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/vthumb.png"
-            xoffset 1700  
+            xoffset 1700
 
 screen thld_choice(items):
     modal True
@@ -819,9 +819,9 @@ screen thld_choice(items):
 screen thld_help():
     tag menu
     modal True
-    
+
     add THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png"
-    
+
     text "Информация":
         font thld_link_font
         size 70
@@ -829,23 +829,23 @@ screen thld_help():
         ypos 33
         antialias True
         kerning 2
-            
+
     textbutton "Группа VK":
-        style "thld_log_button" 
+        style "thld_log_button"
         text_style "thld_settings_header_quit"
         xalign 0.5
         ypos 350
         action OpenURL("https://vk.com/public176281709")
 
     textbutton "Под холодным небом":
-        style "thld_log_button" 
+        style "thld_log_button"
         text_style "thld_settings_header_quit"
         xalign 0.5
         ypos 500
         action OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=2262867309")
 
     textbutton "Сон":
-        style "thld_log_button" 
+        style "thld_log_button"
         text_style "thld_settings_header_quit"
         xalign 0.5
         ypos 650
@@ -855,9 +855,9 @@ screen thld_help():
         xpos 1520
         ypos 890
 
-    textbutton "Назад": 
-        style "thld_log_button" 
-        text_style "thld_settings_link" 
-        xalign 0.015 
-        yalign 0.92 
+    textbutton "Назад":
+        style "thld_log_button"
+        text_style "thld_settings_link"
+        xalign 0.015
+        yalign 0.92
         action Return()

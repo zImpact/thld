@@ -27,7 +27,7 @@ screen thld_music_room():
                     draggable True
                     mousewheel True
                     scrollbars None
-                    
+
                     grid 1 len(thld_music_box):
                         for name, track in sorted(thld_music_box.iteritems()):
                             $ thld_music_room_label_text = name if thld_music_room.is_unlocked(track) else "???"

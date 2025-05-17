@@ -11,7 +11,7 @@ init python:
 
     def thld_gallery_page_counter(n, k):
         l = float(n) / float(k)
-        
+
         if l - int(l) > 0:
             return int(l) + 1
 
