@@ -1,14 +1,14 @@
 init python:
-    mods["thld_start"] = u"{font=thld/images/gui/fonts/gotham_pro_light.ttf}{size=40}Преддверие{/font}{/size}"
+    mods["thld_start"] = u"{font=[thld_main_menu_font]}{size=40}Преддверие{/font}{/size}"
 
     try:
-        modsImages["thld_start"] = ("thld/images/gui/misc/thld_tabular_list_preview.png", False)
+        modsImages["thld_start"] = (THLD_GUI_PATH + "misc/thld_tabular_list_preview.png", False)
 
     except:
         pass
 
 label thld_start:
-    $ thld_set_time("prologue")
+    $ thld_set_time(THLD_TIMEOFDAY_PROLOGUE)
     $ thld_onload("lock")
     $ thld_set_dynamic_cursor("main_menu")
     $ thld_screens_save_act()

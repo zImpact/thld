@@ -137,28 +137,6 @@ init python:
     style.thld_settings_header_main_menu_preferences_inverse.hover_color = "#ffffff"
     style.thld_settings_header_main_menu_preferences_inverse.selected_color = "#ffffff"
 
-    # style.thld_main_menu = Style(style.thld_base_font)
-    # style.thld_main_menu.font = thld_main_menu_font
-    # style.thld_main_menu.size = 95
-    # style.thld_main_menu.kerning = 3
-    # style.thld_main_menu.color = "#ffffff"
-    # style.thld_main_menu.hover_color = "#ffffff"
-    # style.thld_main_menu.selected_color = "#ffffff"
-    # style.thld_main_menu.selected_idle_color = "#ffffff"
-    # style.thld_main_menu.selected_hover_color = "#ffffff"
-    # style.thld_main_menu.insensitive_color = "#ffffff"
-
-    # style.thld_main_menu_locked = Style(style.thld_base_font)
-    # style.thld_main_menu_locked.font = thld_header_font
-    # style.thld_main_menu_locked.size = 60
-    # style.thld_main_menu_locked.kerning = 3
-    # style.thld_main_menu_locked.color = "#C0C0C0"
-    # style.thld_main_menu_locked.hover_color = "#C0C0C0"
-    # style.thld_main_menu_locked.selected_color = "#C0C0C0"
-    # style.thld_main_menu_locked.selected_idle_color = "#C0C0C0"
-    # style.thld_main_menu_locked.selected_hover_color = "#C0C0C0"
-    # style.thld_main_menu_locked.insensitive_color = "#C0C0C0"
-
     style.thld_settings_header_day = Style(style.thld_base_font)
     style.thld_settings_header_day.font = thld_header_font
     style.thld_settings_header_day.size = 50

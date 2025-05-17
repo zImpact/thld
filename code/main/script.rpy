@@ -35,16 +35,16 @@ init python:
         )
         
     def thld_screen_save():
-        for screen_name in ["main_menu", "quit", "say", "nvl", "game_menu_selector", "yesno_prompt", "choice", "help"]:
-            renpy.display.screen.screens[("thld_old_" + screen_name, None)] = renpy.display.screen.screens[(screen_name, None)]
+        for screen_name in THLD_SCREENS:
+            renpy.display.screen.screens[(THLD_PREFIX + "old_" + screen_name, None)] = renpy.display.screen.screens[(screen_name, None)]
         
     def thld_screen_act():
         config.window_title = u"Преддверие"
-        config.name = "thld"
+        config.name = "Threshold"
         config.version = "1.0"
 
-        for screen_name in ["main_menu", "quit", "say", "nvl", "game_menu_selector", "yesno_prompt", "choice", "help"]:
-            renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("thld_" + screen_name, None)]
+        for screen_name in THLD_SCREENS:
+            renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[(THLD_PREFIX + screen_name, None)]
 
         layout.LOADING = "Потерять несохраненные данные?"
             
@@ -57,8 +57,8 @@ init python:
         config.name = "Everlasting_Summer"
         config.version = "1.2"
 
-        for screen_name in ["main_menu", "quit", "say", "nvl", "game_menu_selector", "yesno_prompt", "choice", "help"]:
-            renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[("thld_old_" + screen_name, None)]
+        for screen_name in THLD_SCREENS:
+            renpy.display.screen.screens[(screen_name, None)] = renpy.display.screen.screens[(THLD_PREFIX + "old_" + screen_name, None)]
          
         layout.LOADING = "Загрузка приведёт к потере несохранённых данных.\nВы уверены, что хотите сделать это?"
         

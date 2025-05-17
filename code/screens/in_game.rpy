@@ -5,7 +5,9 @@ screen thld_preferences():
     $ thld_bar_null = Frame((THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/bar_null.png"), 36, 36)
     $ thld_bar_full = Frame((THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/bar_full.png"), 36, 36)
 
-    window background THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/preferences_bg.jpg":
+    window:
+        background THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/preferences_bg.jpg"
+
         text "Настройки":
             style "thld_settings_link"
             xalign 0.5
@@ -34,7 +36,8 @@ screen thld_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.fullscreen:
-                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
+                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png":
+                                ypos 0.12
 
                         else:
                             null width 22
@@ -46,7 +49,8 @@ screen thld_preferences():
 
                     hbox xalign 0.5:
                         if not _preferences.fullscreen:
-                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
+                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png":
+                                ypos 0.12
 
                         else:
                             null width 22
@@ -63,7 +67,8 @@ screen thld_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.skip_unseen:
-                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
+                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png":
+                                ypos 0.12
 
                         else:
                             null width 22
@@ -75,7 +80,8 @@ screen thld_preferences():
 
                     hbox xalign 0.5:
                         if not _preferences.skip_unseen:
-                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
+                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png":
+                                ypos 0.12
 
                         else:
                             null width 22
@@ -161,7 +167,8 @@ screen thld_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if _preferences.afm_time != 0:
-                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
+                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png":
+                                ypos 0.12
 
                         else:
                             null width 22
@@ -173,7 +180,8 @@ screen thld_preferences():
 
                     hbox xalign 0.5:
                         if _preferences.afm_time == 0:
-                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
+                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png":
+                                ypos 0.12
 
                         else:
                             null width 22
@@ -181,7 +189,10 @@ screen thld_preferences():
                         textbutton "Выключить":
                             style "thld_log_button"
                             text_style "thld_settings_text_" + persistent.timeofday
-                            action (Preference("auto-forward time", 0), Preference("auto-forward after click", "disable"))
+                            action [
+                                Preference("auto-forward time", 0),
+                                Preference("auto-forward after click", "disable")
+                            ]
 
                 text "Время автоперехода":
                     style "thld_settings_header_" + persistent.timeofday
@@ -204,7 +215,8 @@ screen thld_preferences():
                 grid 2 1 xfill True:
                     hbox xalign 0.5:
                         if persistent.font_size == "small":
-                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
+                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png":
+                                ypos 0.12
 
                         else:
                             null width 22
@@ -216,7 +228,8 @@ screen thld_preferences():
 
                     hbox xalign 0.5:
                         if not persistent.font_size == "small":
-                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png" ypos 0.12
+                            add THLD_GUI_PATH + "preferences/" + persistent.timeofday + "/leaf.png":
+                                ypos 0.12
 
                         else:
                             null width 22
@@ -244,7 +257,9 @@ screen thld_save():
     tag menu
     modal True
     
-    window background THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png":
+    window:
+        background THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png"
+
         text "Сохранение":
             style "thld_settings_link"
             xalign 0.5
@@ -275,14 +290,20 @@ screen thld_save():
             xalign 0.97
             action FileDelete(selected_slot)
 
-        grid 4 3 xpos 0.108 ypos 0.2 xmaximum 0.81 ymaximum 0.65:
+        grid 4 3:
+            xpos 0.108
+            ypos 0.2
+            xmaximum 0.81
+            ymaximum 0.65
             transpose False
             xfill True
             yfill True
 
             for i in range(1, 13):
                 fixed:
-                    add FileScreenshot(i) xpos 10 ypos 10
+                    add FileScreenshot(i):
+                        xpos 10
+                        ypos 10
 
                     button:
                         action SetVariable("selected_slot", i)
@@ -290,13 +311,18 @@ screen thld_save():
                         yfill False
                         style "thld_save_load_button_" + persistent.timeofday
                         has fixed
-                        text ("%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" + FileSaveName(i)) style "file_picker_text" xpos 15 ypos 15
+                        text "%s." % i + FileTime(i, format=THLD_SAVE_LOAD_FORMAT, empty=THLD_SAVE_LOAD_EMPTY_LABEL) + "\n" + FileSaveName(i):
+                            style "file_picker_text"
+                            xpos 15
+                            ypos 15
     
 screen thld_load():
     tag menu
     modal True
     
-    window background THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png":
+    window:
+        background THLD_GUI_PATH + "save_load/" + persistent.timeofday + "/load_bg.png"
+
         text "Загрузка":
             style "thld_settings_link"
             xalign 0.5
@@ -327,14 +353,20 @@ screen thld_load():
             xalign 0.97
             action FileDelete(selected_slot)
 
-        grid 4 3 xpos 0.108 ypos 0.2 xmaximum 0.81 ymaximum 0.65:
+        grid 4 3:
+            xpos 0.108
+            ypos 0.2
+            xmaximum 0.81
+            ymaximum 0.65
             transpose False
             xfill True
             yfill True
 
             for i in range(1, 13):
                 fixed:
-                    add FileScreenshot(i) xpos 10 ypos 10
+                    add FileScreenshot(i):
+                        xpos 10
+                        ypos 10
 
                     button:
                         action SetVariable("selected_slot", i)
@@ -342,12 +374,20 @@ screen thld_load():
                         yfill False
                         style "thld_save_load_button_" + persistent.timeofday
                         has fixed
-                        text ("%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" +FileSaveName(i)) style "file_picker_text" xpos 15 ypos 15                  
+                        text "%s." % i + FileTime(i, format=" %d.%m.%y, %H:%M", empty=" Пусто") + "\n" +FileSaveName(i):
+                            style "file_picker_text"
+                            xpos 15
+                            ypos 15                  
                                 
 screen thld_say(what, who):    
-    window background None id "window":
+    window:
+        background None
+        id "window"
+
         if persistent.font_size == "large":
-            add THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/dialogue_box_large.png" xpos 174 ypos 866
+            add THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/dialogue_box_large.png":
+                xpos 174
+                ypos 866
 
             imagebutton:
                 auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/hide_%s.png" 
@@ -410,7 +450,9 @@ screen thld_say(what, who):
                     line_spacing 1
 
         elif persistent.font_size == "small":
-            add THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/dialogue_box.png" xpos 174 ypos 916
+            add THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/dialogue_box.png":
+                xpos 174
+                ypos 916
 
             imagebutton:
                 auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/hide_%s.png"
@@ -473,7 +515,15 @@ screen thld_say(what, who):
                     line_spacing 2
 
 screen thld_nvl(items, dialogue):
-    window background Frame((THLD_GUI_PATH + "choice/" + persistent.timeofday + "/choice_box.png"), 50, 50) xfill True yfill True yalign 0.5 left_padding 175 right_padding 175 bottom_padding 150 top_padding 150:
+    window:
+        background Frame((THLD_GUI_PATH + "choice/" + persistent.timeofday + "/choice_box.png"), 50, 50)
+        xfill True
+        yfill True
+        yalign 0.5
+        left_padding 175
+        right_padding 175
+        bottom_padding 150
+        top_padding 150
         has vbox
 
         for who, what, who_id, what_id, window_id in dialogue:
@@ -511,10 +561,12 @@ screen thld_nvl(items, dialogue):
                         button:
                             style "nvl_menu_choice_button"
                             action action
-                            text caption style "nvl_menu_choice"
+                            text caption:
+                                style "nvl_menu_choice"
 
                     else:
-                        text caption style "nvl_dialogue"
+                        text caption:
+                            style "nvl_dialogue"
 
     imagebutton:
         auto THLD_GUI_PATH + "dialogue_box/" + persistent.timeofday + "/backward_%s.png"
@@ -544,22 +596,46 @@ screen thld_game_menu_selector():
         timer 0.01 action Return()
 
     else:
-        button style "blank_button" xpos 0 ypos 0 xfill True yfill True action Return()
+        button:
+            style "blank_button"
+            xpos 0
+            ypos 0
+            xfill True
+            yfill True
+            action Return()
 
-        add THLD_GUI_PATH + "quick_menu/" + persistent.timeofday + "/quick_menu_ground.png" xalign 0.5 yalign 0.5
+        add THLD_GUI_PATH + "quick_menu/" + persistent.timeofday + "/quick_menu_ground.png":
+            xalign 0.5
+            yalign 0.5
 
         imagemap:
             auto THLD_GUI_PATH + "quick_menu/" + persistent.timeofday + "/quick_menu_%s.png" xalign 0.5 yalign 0.5
 
-            hotspot (0, 83, 660, 65) focus_mask None clicked [Function(thld_set_dynamic_cursor, "main_menu"), MainMenu(confirm=False)]
+            hotspot(0, 83, 660, 65):
+                focus_mask None
+                clicked [
+                    Function(thld_set_dynamic_cursor, "main_menu"),
+                    MainMenu(confirm=False)
+                ]
 
-            hotspot (0, 148, 660, 65) focus_mask None clicked ShowMenu("thld_save")
+            hotspot(0, 148, 660, 65):
+                focus_mask None
+                clicked ShowMenu("thld_save")
 
-            hotspot (0, 213, 660, 65) focus_mask None clicked ShowMenu("thld_load")
+            hotspot(0, 213, 660, 65):
+                focus_mask None
+                clicked ShowMenu("thld_load")
 
-            hotspot (0, 278, 660, 65) focus_mask None clicked ShowMenu("thld_preferences")
+            hotspot(0, 278, 660, 65):
+                focus_mask None
+                clicked ShowMenu("thld_preferences")
 
-            hotspot (0, 343, 660, 65) focus_mask None action [Function(thld_screens_diact), ShowMenu("main_menu")]
+            hotspot(0, 343, 660, 65):
+                focus_mask None
+                action [
+                    Function(thld_screens_diact),
+                    ShowMenu("main_menu")
+                ]
 
 screen thld_quit():
     tag menu
@@ -613,19 +689,7 @@ screen thld_yesno_prompt(yes_action, message, no_action):
         text_align 0.5 
         yalign 0.46 
         xalign 0.5
-
-        if persistent.timeofday == "day":
-            color "#64483c"
-
-        elif persistent.timeofday == "night":
-            color "#161d3d"
-
-        elif persistent.timeofday == "prologue":
-            color "#008193"
-
-        elif persistent.timeofday == "sunset":
-            color "#5a3525"
-
+        color THLD_YESNO_PROMPT_MESSAGE_COLOR[persistent.timeofday]
         size 30
 
     textbutton "Да": 
@@ -663,9 +727,21 @@ screen thld_text_history():
         $ history_text_size = 36
         $ history_name_size = 37
 
-    button style "blank_button" xpos 0 ypos 0 xfill True yfill True action Return()
+    button:
+        style "blank_button"
+        xpos 0
+        ypos 0
+        xfill True
+        yfill True
+        action Return()
 
-    window background Frame(THLD_GUI_PATH + "choice/" + persistent.timeofday + "/choice_box.png") left_padding 75 right_padding 75 bottom_padding 120 top_padding 120:
+    window:
+        background Frame(THLD_GUI_PATH + "choice/" + persistent.timeofday + "/choice_box.png")
+        left_padding 75
+        right_padding 75
+        bottom_padding 120
+        top_padding 120
+
         viewport id "thld_text_history_screen":
             draggable True
             mousewheel True
@@ -691,19 +767,7 @@ screen thld_text_history():
                     text_style "thld_text_history" 
                     xpos 100                    
                     xmaximum xmax
-
-                    if persistent.timeofday == "day":
-                        text_hover_color "#40e138"
-
-                    elif persistent.timeofday == "night":
-                        text_hover_color "#008193"
-
-                    elif persistent.timeofday == "prologue":
-                        text_hover_color "#00c6ff"
-
-                    elif persistent.timeofday == "sunset":
-                        text_hover_color "#636840"
-                    
+                    text_hover_color THLD_TEXT_HISTORY_WHAT_COLOR_HOVER[persistent.timeofday]
                     action RollbackToIdentifier(h.rollback_identifier) 
         
         vbar:
@@ -715,29 +779,16 @@ screen thld_text_history():
 
 screen thld_choice(items):
     modal True
-    
-    $ thld_choice_colors = {
-        "day": "#466123",
-        "night": "#145644",
-        "sunset": "#69652f",
-        "prologue": "#496463"
-    }
 
-    $ thld_choice_colors_hover = {                        
-        "day": "#9dcd55",
-        "night": "#3ccfa2",
-        "sunset": "#dcd168",
-        "prologue": "#98d8da"
-    }
+    window:
+        background Frame((THLD_GUI_PATH + "choice/" + persistent.timeofday + "/choice_box.png"), 50, 50)
+        xfill True
+        yalign 0.5
+        left_padding 75
+        right_padding 75
+        bottom_padding 50
+        top_padding 50
 
-    $ thld_choice_colors_selected = {                        
-        "day": "#2a3b15",
-        "night": "#0b3027",
-        "sunset": "#42401e",
-        "prologue": "#2d3d3d"
-    }
-
-    window background Frame(("thld/images/gui/choice/" + persistent.timeofday + "/choice_box.png"), 50, 50) xfill True yalign 0.5 left_padding 75 right_padding 75 bottom_padding 50 top_padding 50:
         has vbox xalign 0.5
 
         for caption, action, chosen in items:
@@ -746,22 +797,24 @@ screen thld_choice(items):
                     xalign 0.5
                     action action
 
-                    if persistent.licensed:
-                        if caption in persistent.choices and caption != "Налево" and caption != "Направо" and caption != "Go left" and caption != "Go right" and caption != "Ir a la izquierda" and caption != "Ir a la derecha":
-                            text caption font header_font size 37 hover_size 37 color thld_choice_colors_selected[persistent.timeofday] hover_color thld_choice_colors_hover[persistent.timeofday] xcenter 0.5 text_align 0.5
-                            
-                        else:
-                            text caption font header_font size 37 hover_size 37 color thld_choice_colors[persistent.timeofday] hover_color thld_choice_colors_hover[persistent.timeofday] xcenter 0.5 text_align 0.5
+                    $ action_color = THLD_CHOICE_COLORS_SELECTED[persistent.timeofday] if caption in persistent.choices else THLD_CHOICE_COLORS[persistent.timeofday]
 
-                    else:
-                        text caption font header_font size 37 hover_size 37 color thld_choice_colors[persistent.timeofday] hover_color thld_choice_colors_hover[persistent.timeofday] xalign 0.5
+                    text caption:
+                        font header_font
+                        size 37
+                        hover_size 37
+                        color action_color
+                        hover_color THLD_CHOICE_COLORS_HOVER[persistent.timeofday]
+                        xcenter 0.5
+                        text_align 0.5
 
             else:
-                if persistent.licensed:
-                    text caption font header_font size 60 color thld_choice_colors[persistent.timeofday] text_align 0.5 xcenter 0.5
-
-                else:
-                    text caption font header_font size 40 color thld_choice_colors[persistent.timeofday] xalign 0.5 text_align 0.5 xcenter 0.5
+                text caption:
+                    font header_font
+                    size 60
+                    color THLD_CHOICE_COLORS[persistent.timeofday]
+                    text_align 0.5
+                    xcenter 0.5
 
 screen thld_help():
     tag menu
@@ -798,7 +851,9 @@ screen thld_help():
         ypos 650
         action OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=2663197411")
 
-    add "thld_logowhite_hover" xpos 1520 ypos 890
+    add "thld_logowhite_hover":
+        xpos 1520
+        ypos 890
 
     textbutton "Назад": 
         style "thld_log_button" 
