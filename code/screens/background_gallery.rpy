@@ -2,7 +2,7 @@ init python:
     thld_gallery = Gallery()
     thld_gallery_page = 0
     thld_gallery.transition = fade
-    thld_gallery.locked_button = thld_gui_path + "save_load/main_menu/thumbnail_idle.png"
+    thld_gallery.locked_button = THLD_GUI_PATH + "save_load/main_menu/thumbnail_idle.png"
     thld_gallery.navigation = False
 
     thld_rows = 4
@@ -11,7 +11,7 @@ init python:
 
     def thld_gallery_page_counter(n, k):
         l = float(n) / float(k)
-        
+
         if l - int(l) > 0:
             return int(l) + 1
 
@@ -85,7 +85,7 @@ screen thld_background_gallery():
                         (8, 8),
                         im.Alpha(_thld_img_scaled, 0.9),
                         (0, 0),
-                        im.Image(thld_gui_path + "save_load/main_menu/thumbnail_idle.png")
+                        im.Image(THLD_GUI_PATH + "save_load/main_menu/thumbnail_idle.png")
                     )
 
                     $ thld_imgh = im.Composite(
@@ -93,7 +93,7 @@ screen thld_background_gallery():
                         (8, 8),
                         _thld_img_scaled,
                         (0, 0),
-                        im.Image(thld_gui_path + "save_load/main_menu/thumbnail_hover.png")
+                        im.Image(THLD_GUI_PATH + "save_load/main_menu/thumbnail_hover.png")
                     )
 
                     add thld_gallery.make_button(
@@ -117,19 +117,19 @@ screen thld_background_gallery():
 
         if thld_gallery_page != 0:
             imagebutton:
-                auto thld_gui_path + "misc/gallery_previous_%s.png"
-                yalign 0.5 
-                xalign 0.04 
+                auto THLD_GUI_PATH + "misc/gallery_previous_%s.png"
+                yalign 0.5
+                xalign 0.04
                 action [
                     SetVariable("thld_gallery_page", thld_gallery_page - 1),
                     ShowMenu("thld_background_gallery")
                 ]
 
         if thld_gallery_page != int(thld_gallery_page_counter(thld_len_table, thld_cells)) - 1:
-            imagebutton: 
-                auto thld_gui_path + "misc/gallery_next_%s.png"
-                yalign 0.5 
-                xalign 0.96 
+            imagebutton:
+                auto THLD_GUI_PATH + "misc/gallery_next_%s.png"
+                yalign 0.5
+                xalign 0.96
                 action [
                     SetVariable("thld_gallery_page", thld_next_page),
                     ShowMenu("thld_background_gallery")

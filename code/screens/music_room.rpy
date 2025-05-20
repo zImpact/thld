@@ -14,7 +14,7 @@ screen thld_music_room():
     if not thld_main_menu_var:
         add "thld_main_menu_options_frame" xalign 0.5 yalign 0.5
 
-        add thld_gui_path + "main_menu/music_room_frame.png"
+        add THLD_GUI_PATH + "main_menu/music_room_frame.png"
 
         frame:
             background None
@@ -27,10 +27,12 @@ screen thld_music_room():
                     draggable True
                     mousewheel True
                     scrollbars None
-                    
+
                     grid 1 len(thld_music_box):
                         for name, track in sorted(thld_music_box.iteritems()):
-                            textbutton name:
+                            $ thld_music_room_label_text = name if thld_music_room.is_unlocked(track) else "???"
+
+                            textbutton thld_music_room_label_text:
                                 style "thld_button_none"
                                 text_style "music_link"
                                 xalign 0.5
@@ -39,7 +41,7 @@ screen thld_music_room():
                 vbar:
                     value YScrollValue("thld_music_box")
                     bottom_bar "thld_main_menu_vbar_null_glitched"
-                    top_bar thld_gui_path + "main_menu/vbar_full.png"
+                    top_bar THLD_GUI_PATH + "main_menu/vbar_full.png"
                     thumb None
                     xmaximum 52
 
