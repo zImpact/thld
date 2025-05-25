@@ -27,6 +27,7 @@ init python:
         "thld_ext_railway_day_train",
         "thld_int_dining_hall_damaged",
         "thld_ext_houses_night",
+        "thld_ext_playground_night_battle",
     ]
 
     for bg in thld_gallery_bg_list:
