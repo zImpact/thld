@@ -3,6 +3,7 @@ label thld_scenario:
     $ renpy.pause(3, hard=True)
     scene bg thld_int_catacombs_living_celling with fade3
     $ thld_set_mode_adv()
+    $ thld_set_time(THLD_TIMEOFDAY_PROLOGUE)
     $ thld_set_dynamic_cursor("timeofday")
     play ambience ambience_catacombs fadein 2
     thld_narrator "Я смотрю в потолок, на всевозможные сплетения труб. Мутные капли медленно, словно нехотя падают на пол. {w}Сколько я уже тут?"
@@ -29,7 +30,7 @@ label thld_scenario:
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)
-    $ thld_set_time("night")
+    $ thld_set_time(THLD_TIMEOFDAY_NIGHT)
     scene bg thld_ext_tribune_night with Dissolve(2)
     play ambience ambience_camp_center_night fadein 2
     play sound_loop thld_voices fadein 2
@@ -40,8 +41,10 @@ label thld_scenario:
     thld_narrator "Пионер просто переместил меня в другой лагерь. {w}{i}Возьми что-нибудь для защиты и умри как можно позже.{/i}"
     thld_narrator "Драки насмерть. Я мог представить себе всё что угодно, но только не это."
     thld_narrator "Прямо сейчас на поле один Пионер с топором догонял трусливо наматывающего круги второго."
-    thld_narrator "Поле представляло собой начерченный по периметру прямоугольник, внутри которого располагалась пара ящиков, мешков и собранной по всему лагерю мебели."
+    scene bg thld_ext_playground_night_battle with fade
+    thld_narrator "Поле представляло собой начерченный по периметру прямоугольник, внутри которого валялись куски дерева - следы борьбы предыдущих пионеров."
     thld_narrator "{i}Всё, чтобы разнообразить процесс{/i}, как они говорят."
+    scene bg thld_ext_tribune_night with fade
     thld_narrator "На трибунах находилась пара десятков пионеров. Многие из них только ждут своей очереди."
     thld_narrator "Больше всего меня удивляло их отношение к этому безумию."
     thld_narrator "Были те, кому это очевидно нравилось и кто чувствовал себя не в своей тарелке. Но пугали меня другие, те, что безразлично наблюдали, лишь изредка зевая."
@@ -58,10 +61,12 @@ label thld_scenario:
     thld_narrator "Но, когда он почти подошел на расстояние удара, его соперник выпрыгнул за пределы поля."
     thld_narrator "Дровосек издал нечленораздельный крик и ринулся за беглецом, но, к моему удивлению, пара грозного вида пионеров быстро остановила его, мгновенно отобрав топор."
     thld_pi_arena "Остынь, Дровосек. {w}Правила ради тебя не поменяют."
-    thld_narrator "Успешно сбежавший Чайник в это время, несмотря на презрительные взгляды, с гордым видом занял своё место на пустующей скамье. {w}Он выглядел чем-то озадаченным, но не более."
+    thld_narrator "Успешно сбежавший Чайник в это время, несмотря на презрительные взгляды, с гордым видом занял своё место на пустующей скамье. {w}Он выглядел чем-то озадаченным, но не более." # FIXME: здесь имя Чайника неизвестно
     thld_th "Правила позволяют убежать с поля? {w}Повезло, что я вообще об этом узнал!"
     thld_narrator "Надежда избежать, казалось, неминуемой смерти, согрела."
-    $ renpy.pause(3, hard=True)
+    scene bg black with Dissolve(2)
+    $ renpy.pause(2, hard=True)
+    scene bg thld_ext_tribune_night with Dissolve(2)
     thld_pi_announcer "Три... {w}Два... {w}Начали!"
     thld_narrator "Один за другим проходили и следующие раунды, участников ставало всё меньше."
     thld_narrator "Я думал, что Пионеры будут уносить тела с арены, но после смерти побеждённые покрывались тенью тумана, становились прозрачными а затем растворялись, будто никогда их и не было."
@@ -79,11 +84,17 @@ label thld_scenario:
     hide thld_pi with dissolve
     stop music fadeout 5
     thld_narrator "Стараясь не показывать своего страха, я вышел в центр поля."
-    scene bg ext_playground_night with dissolve
+    scene bg thld_ext_playground_night_battle with dissolve
     thld_narrator "Пусть я не выиграю ни одного раунда, но, если повезёт, они хотя бы от меня отстанут."
     thld_narrator "Я занял своё место на поле. {w}Второго пока не было."
     thld_narrator "И чего он ждет? {w}Неважно, главное не растеряться. {w}Если держать себя в рука..." # nolint
     play music thld_harbringer fadein 7
+    scene bg thld_ext_tribune_night:
+        truecenter
+        zoom 1.75
+    show thld_butcher smile
+    show thld_vingette
+    with vpunch
     thld_narrator "Со скамейки встал он! Мясник!"
     thld_narrator "В одно мгновение мне стало невыносимо душно. Голова пошла кругом, руки пробил тремор."
     thld_narrator "Перед глазами, словно обрывками с плёнки мелькал тошнотворный момент расправы камнем, который Мясник смаковал с явным удовольствием."
@@ -96,7 +107,9 @@ label thld_scenario:
     thld_narrator "На лбу выступил холодный пот."
     thld_th "Надо бежать отсюда, плевать на правила, плевать что будет! {w}Надо просто БЕЖАТЬ!"
     thld_narrator "Но тело не слушалось. {w}Ноги будто вросли в землю."
-    show thld_butcher smile with dissolve
+    scene bg thld_ext_playground_night_battle
+    show thld_butcher smile
+    with fade
     thld_narrator "Мясник занял место напротив меня."
     thld_pi_announcer "Три!"
     thld_narrator "Он больше ничего не говорил. Просто смотрел прямо мне в глаза и скалился."
@@ -106,8 +119,7 @@ label thld_scenario:
     thld_pi_announcer "Один!"
     thld_narrator "Я ударил себя кулаком по колену, арматура выпала из рук и упала на ногу. {w}Боль помогла."
     thld_pi_announcer "Нача...!" # nolint
-    #TODO поменять фон не на площадку, а на пляж
-    scene bg ext_playground_night with dspr:
+    scene bg ext_beach_night with dspr:
         zoom 1.05 anchor(48, 27)
         ease 0.15 pos(0, 0)
         ease 0.15 pos(25, 25)
@@ -122,19 +134,22 @@ label thld_scenario:
     stop ambience fadeout 2
     stop music fadeout 4
     scene bg ext_beach_night with Dissolve(1)
+    $ renpy.pause(1.0, hard=True)
     play ambience ambience_boat_station_night fadein 2
     thld_narrator "Я выбежал со спортивной площадки с такой скоростью, что для того, чтобы остановиться, мне понадобилось метров пять. {w}Сердце стучало, как бешеное."
-    #TODO Фон площадки и Мясник в отдалении
+    scene bg thld_ext_playground_night_battle
+    show thld_butcher normal far
+    with fade
     thld_narrator "Я обернулся."
     thld_narrator "Как я и надеялся, Мясник не стал меня преследовать. {w}Он остановился ровно у черты и следил за мной злым обиженным взглядом."
-    #TODO конец фона
+    scene bg ext_beach_night with fade
     thld_narrator "На глаза выступили слезы от радости и облегчения."
     thld_narrator "Мне требовалось передохнуть. Я пошел к ближайшей почти пустой скамейке."
     stop sound_loop fadeout 2
     show thld_hall pos2 smile with dissolve
     thld_pi_teapot "Суметь удачно сбежать порой даже сложнее, чем победить. Поздравляю."
     thld_narrator "Это был тот самый парень, что подсказал идею бегства."
-    thld_narrator "В то же мгновение, когда стало ясно, что опасность миновала, силы покинули меня и решил сесть рядом с Чайником."
+    thld_narrator "В то же мгновение, когда стало ясно, что опасность миновала, силы покинули меня и решил сесть рядом с Чайником." # FIXME: мы не знаем, что его зовут Чайник
     #TODO звук монотонной телепомехи
     with flash_red
     thld_narrator "В то же мгновение мою спину пронзило острой болью. В глазах резко потемнело, я начал заваливаться на бок."
@@ -179,9 +194,9 @@ label thld_scenario:
     thld_pi_teapot "И всё? {w}Даже истерик не будет?"
     thld_narrator "Я не стал ему отвечать. Почему-то сейчас он стал казаться мне безобидным."
     show thld_hall pos2 smile3 with dspr
-    thld_pi_teapot "Ну тогда давай заново: зови меня Чайник, а тебя я буду звать так, как захочу. {w}У тебя всё равно пока нет имени."
+    thld_teapot "Ну тогда давай заново: зови меня Чайник, а тебя я буду звать так, как захочу. {w}У тебя всё равно пока нет имени."
     thld_narrator "Чайник протянул мне руку. Я протянул свою в ответ."
-    thld_pi_teapot "Пойдём прогуляемся до медпункта, а то ты уже всю скамейку кровью перемазал."
+    thld_teapot "Пойдём прогуляемся до медпункта, а то ты уже всю скамейку кровью перемазал."
     stop ambience fadeout 3
     scene bg black with Dissolve(2)
     $ renpy.pause(2, hard=True)

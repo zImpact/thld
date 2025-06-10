@@ -508,6 +508,7 @@ init:
     image thld_sunset_dust = ThldDustParticles("thld/images/effects/sunset_particle_dust.png", 300)
     image thld_ext_lake_day = "thld/images/effects/ext_lake_day.png"
     image thld_ext_boat_day = "thld/images/effects/ext_boat_day.png"
+    image thld_vingette = "thld/images/effects/vingette.png"
 
     image thld_blank_skip = renpy.display.behavior.ImageButton(Null(1920, 1080), Null(1920, 1080), clicked=[Jump("thld_after_intro")])
 
