@@ -1,6 +1,6 @@
 label thld_scenario:
     stop music fadeout 3
-    $ renpy.pause(3, hard=True)
+    pause 3
     scene bg thld_int_catacombs_living_celling with fade3
     $ thld_set_mode_adv()
     $ thld_set_time(THLD_TIMEOFDAY_PROLOGUE)
@@ -29,7 +29,7 @@ label thld_scenario:
     thld_narrator "Он пришёл с приглашением. {w}С этого всё и началось."
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     $ thld_set_time(THLD_TIMEOFDAY_NIGHT)
     scene bg thld_ext_tribune_night with Dissolve(2)
     play ambience ambience_camp_center_night fadein 2
@@ -65,7 +65,7 @@ label thld_scenario:
     thld_th "Правила позволяют убежать с поля? {w}Повезло, что я вообще об этом узнал!"
     thld_narrator "Надежда избежать, казалось, неминуемой смерти, согрела."
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     scene bg thld_ext_tribune_night with Dissolve(2)
     thld_pi_announcer "Три... {w}Два... {w}Начали!"
     thld_narrator "Один за другим проходили и следующие раунды, участников ставало всё меньше."
@@ -134,7 +134,7 @@ label thld_scenario:
     stop ambience fadeout 2
     stop music fadeout 4
     scene bg ext_beach_night with Dissolve(1)
-    $ renpy.pause(1.0, hard=True)
+    pause 1
     play ambience ambience_boat_station_night fadein 2
     thld_narrator "Я выбежал со спортивной площадки с такой скоростью, что для того, чтобы остановиться, мне понадобилось метров пять. {w}Сердце стучало, как бешеное."
     scene bg thld_ext_playground_night_battle
@@ -199,7 +199,7 @@ label thld_scenario:
     thld_teapot "Пойдём прогуляемся до медпункта, а то ты уже всю скамейку кровью перемазал."
     stop ambience fadeout 3
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     $ thld_set_time("day")
     scene bg ext_houses_day
     show thld_hall pos2 normal at center
@@ -304,7 +304,7 @@ label thld_scenario:
     stop ambience fadeout 2
     stop music fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     scene bg ext_path2_day with Dissolve(2)
     play ambience ambience_forest_day fadein 2
     thld_narrator "Мы уже довольно продолжительное время шли в безмолвии. Куда мы держали путь было решительно неясно. Петляли лесными тропинками."
@@ -377,7 +377,7 @@ label thld_scenario:
     thld_teapot "В сторону железной дороги."
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     show thld_ext_lake_day at thld_boat_moving
     show thld_ext_boat_day
     with Dissolve(2)
@@ -416,7 +416,7 @@ label thld_scenario:
     thld_teapot "Лагерь создал нас отыгрывать роль Пионеров. А сам он отыгрывает роль реального мира."
     thld_teapot "Очень посредственно, кстати."
     play ambience ambience_boat_station_day fadein 2
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     $ thld_ext_boat_day_offsets = thld_get_image_offsets("thld_ext_lake_day", 1.03, 1920, 1080)
     show thld_ext_lake_day behind thld_hall, thld_ext_boat_day:
         subpixel True
@@ -425,9 +425,9 @@ label thld_scenario:
         xoffset thld_ext_boat_day_offsets[0]
         yoffset thld_ext_boat_day_offsets[1]
         ease 1.0 xoffset 0 yoffset 0
-    $ renpy.pause(1, hard=True)
+    pause 1
     hide thld_hall with dissolve
-    $ renpy.pause(1, hard=True)
+    pause 1
     stop music fadeout 5
     scene bg thld_ext_hill_day with dissolve
     thld_narrator "Мы пристали к берегу. Чайник, сложив руки на груди, наблюдал за тем, как я своими пылающими руками вытаскивал лодку на берег. Помогать он, конечно, не собирался."
@@ -487,7 +487,7 @@ label thld_scenario:
     scene bg thld_ext_railway_day_train:
         truecenter
         ease 1.75 zoom 2.0
-    $ renpy.pause(1.75, hard=True)
+    pause 1.75
     thld_narrator "С опаской я подошел ближе и протянул руку к мчащимся вагонам."
     thld_narrator "По ощущениям это было подобно прикосновению к легкому туману."
     thld_teapot "Чтобы на таком уехать, нужно неплохо ловить ветер. {w}Воздушным змеем, например..."
@@ -496,12 +496,12 @@ label thld_scenario:
         truecenter
         zoom 2.0
     with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     scene bg thld_ext_railway_day:
         truecenter
         zoom 2.0
         ease 1.75 zoom 1.0
-    $ renpy.pause(1.75, hard=True)
+    pause 1.75, hard=True)
     show thld_hall pos2 smile2 close at left
     show thld_pi normal far at right
     with dissolve
@@ -513,11 +513,11 @@ label thld_scenario:
     thld_narrator "Взгляд пионера довольно красноречиво давал понять, что вот-вот начнётся драка."
     thld_narrator "Словно уловив это настроение Чайник азартно шашнул в сторону и отвёл правую руку за спину."
     thld_narrator "Телодвижения не остались без внимания пионера."
-    $ renpy.pause(1, hard=True)
+    pause 1
     show thld_pi normal far:
         xcenter 0.72 ycenter 0.5 blur 0 alpha 1
         ease 1.5 xcenter 1.3 blur 8 alpha 0
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     thld_narrator "Пару секунд он молча изучал своего потенциального противника, но затем опустил взгляд, отвернулся и молча побрёл куда-то по рельсам."
     thld_teapot "Как тебе встреча с собратом? Его тоже на бойцовскую яму впервые привели. Правда, ему не понравилось."
     thld_teapot "Ладно. Мой знакомый дальше по рельсам. Ты со мной?"
@@ -526,7 +526,7 @@ label thld_scenario:
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
     # TODO: здесь можно добавить музыку тему Инженера
-    $ renpy.pause(2, hard=True)
+    pause 2
     scene bg thld_ext_railway_day
     show thld_hall pos2 smile2 at left
     show thld_engi normal at right
@@ -577,7 +577,7 @@ label thld_scenario:
     thld_engi "Ладно, если у вас ко мне дел больше нет, то не отвлекайте. Я хочу замерить метрики шпал в тишине. {w}Спасибо."
     stop ambience fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     $ thld_set_time("night")
     scene bg thld_int_dining_hall_damaged
     show thld_hall pos2 smile3 at center
@@ -628,11 +628,11 @@ label thld_scenario:
     thld_teapot "Да, и если хочешь отправиться на новый цикл раньше времени, то делай побольше резких движений."
     thld_narrator "А вот это предупреждение меня немного удивило. Белый Пионер не выглядел угрожающим или агрессивным, но и Чайник вряд ли бы сказал это просто так."
     show thld_preacher fold normal at right with dissolve
-    $ renpy.pause(0.5, hard=True)
+    pause 0.5
     show thld_pharos pos1 normal with dspr:
         xcenter -0.3 ycenter 0.5 blur 8 alpha 0
         ease 1.5 xcenter 0.3 blur 0 alpha 1
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     thld_narrator "Когда я приблизился к столу, словно отделившись от теней в углу передо мной возник еще один Пионер."
     thld_narrator "Он выглядел расслабленно, держал руку в кармане, смотрел на меня сверху вниз с вежливостью но и с цепким вниманием."
     thld_narrator "Во всей его манере держаться расслабленно чувствовалась едва скрываемая угроза."
@@ -647,12 +647,12 @@ label thld_scenario:
     show thld_pharos pos1 normal:
         xcenter 0.30 ycenter 0.5 blur 0 alpha 1
         ease 1.5 xcenter -0.3 blur 8 alpha 0
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     thld_narrator "Затем телохранитель отошёл в сторону и в тот же момент вновь затерялся среди гудящей массы Пионеров."
     thld_pi_preacher "Присаживайся, не стесняйся."
     show thld_preacher fold normal: # TODO: сделать зум персонажа
         ease 1 xcenter 0.5
-    $ renpy.pause(1, hard=True)
+    pause 1
     thld_narrator "Я принял приглашение и сел на стул, прямо напротив него."
     thld_preacher "Итак, меня зовут Проповедник. Я пришел сюда, чтобы другие смогли уйти отсюда."
     thld_preacher "Если ты здесь, то судьба привела тебя сюда не случайно. {w}И у тебя наверняка хватает много вопросов."
@@ -819,7 +819,7 @@ label thld_scenario:
     thld_gensek "Через две смены жду вас на пляже." # TODO: возможно, пересмотрим окно времени между этой сменой и морской. Две недели может быть слишком много
     stop sound_loop fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     scene bg thld_ext_tribune_night with Dissolve(2)
     play sound_loop thld_voices fadein 2
     ##TODO play music Prince of Persia - Warrior Within OST #0 Installation
@@ -838,7 +838,7 @@ label thld_scenario:
     thld_th "По всей видимости он ожидал большего восторга с моей стороны."
     thld_teapot "Побольше уважения. {w}Две очередные бомбы!"
     scene bg black with Dissolve(1)
-    $ renpy.pause(1, hard=True)
+    pause 1
     scene bg thld_ext_tribune_night with Dissolve(1)
     thld_narrator "Не знаю зачем я снова сюда пришёл. За очередной порцией ночных кошмаров?"
     thld_narrator "Вероятнее всего мне просто стало тоскливо, что завтра начнётся новый цикл и окружающий меня мир просто забудет обо всём, что случилось за эти семь дней."
@@ -859,7 +859,7 @@ label thld_scenario:
         xcenter 0.5
         ease 0.5 zoom 1.15
     thld_narrator "Он остановился в метре от меня. На его губах переливалась отвратительными полутонами ехидная ухмылка."
-    $ renpy.pause(1, hard=True)
+    pause 1
     show thld_butcher normal with dspr
     thld_narrator "Спустя несколько секунд непрерывного зрительного контакта он вдруг перестал улыбаться."
     thld_narrator "Видимо, он ожидал от меня другой реакции."
@@ -877,7 +877,7 @@ label thld_scenario:
         ease 1.5 xcenter 0.3 blur 0 alpha 1
     show thld_butcher smile:
         ease 1.5 xcenter 0.75
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     thld_pi_pharos "Не трус. Скорее, пацифист."
     thld_narrator "Неожиданно в разговор вмешался знакомый мне пионер."
     thld_narrator "Сперва я не узнал его, пока не заметил ключ на шее. Это же Маяк! Правая рука Проповедника!"
@@ -904,7 +904,7 @@ label thld_scenario:
     show thld_butcher normal:
         xcenter 0.75 zoom 1.15 blur 0 alpha 1
         ease 1.5 xcenter 1.3 blur 8 alpha 0
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     thld_narrator "Он сплюнул, демонстративно развернулся и с высоко поднятой головой удалился в сторону трибун. Туда, где распределяли пары для боёв."
     thld_teapot "За распределение вроде бы сегодня отвечает Инженер? Пойду попрошу поставить меня с Мясником. Что-то он меня сегодня раздражает."
     show thld_pharos pos1 smile with dspr
@@ -919,7 +919,7 @@ label thld_scenario:
     show thld_pharos pos2 laugh:
         xcenter 0.3 blur 0 alpha 1
         ease 1.5 xcenter -0.3 blur 8 alpha 0
-    $ renpy.pause(1.5, hard=True)
+    pause 1.5
     thld_narrator "И он ушёл даже не оглянувшись."
     thld_narrator "Я остался один."
     thld_narrator "На спортивную площадку продолжали прибывать пионеры."
@@ -966,7 +966,7 @@ label thld_scenario:
     thld_engi "И у нас вновь ничья!"
     stop sound_loop fadeout 2
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     scene bg int_house_of_mt_night with Dissolve(2)
     thld_narrator "«...Искатели — лучшие среди Исходников. Они изнурительно тренируются в прыжках между Лагерями, боевых схватках и мастерстве успокоить новичка после опыта первой жестокой смерти. Большинство из них Маяк спас лично. И хоть Проповедник, как и для любого исходника, для них является самым важным лицом, свою благодарность его правой руке они не забудут никогда»." # nolint
     thld_narrator "Я дописал заметку и закрыл записную книжку. Позаимствовал эту вещицу в библиотеке сразу же после начала нового цикла. Теперь это мой дневник. Когда Чайник увидел его у меня, то очень долго потом надо мной глумился."
@@ -1060,7 +1060,7 @@ label thld_scenario:
     thld_narrator "Мне не хочется туда, но здесь я точно не выдержу."
     thld_narrator "От застывшей перед глазами картинки меня вырвало."
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     thld_teapot "Фу-у-у... Мерзковато, конечно."
     thld_narrator "Сбоку, на небольшой дистанции от меня были две пары ног."
     thld_narrator "Я взглянул на Чайника пересохшими, красными глазами."
@@ -1074,7 +1074,7 @@ label thld_scenario:
     thld_narrator "Я потерял сознание."
 
     scene bg black with Dissolve(2)
-    $ renpy.pause(2, hard=True)
+    pause 2
     #медпункт
 
     thld_narrator "Меня разбудил резкий запах, пробирающий до лёгких."
@@ -1677,6 +1677,6 @@ label thld_scenario:
     # TODO: анимация через with fade, показываем звезды с анимацией (можно придумать какой-нибудь кастомный задник)
     thld_narrator "Я в последний раз взглянул на холодное небо, где медленно начинали разрастаться звёзды."
     thld_narrator "И нырнул в люк." # Здесь, 10.04.2025 Андрей был в который раз повержен скилами непревзойденного и неповторимого, прекрасного и харизматичного вашего покорного слуги. Ибо Андрей, да приймет бог его скромную душу, был всецело уверен, что в старом лагере вместо люка была дырка в полу. Аминь
-    $ renpy.pause(1, hard=True)
+    pause 1
     $ thld_set_dynamic_cursor("main_menu")
     $ MainMenu(confirm=False)()
