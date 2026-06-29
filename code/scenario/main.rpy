@@ -501,7 +501,7 @@ label thld_scenario:
         truecenter
         zoom 2.0
         ease 1.75 zoom 1.0
-    pause 1.75, hard=True)
+    pause 1.75
     show thld_hall pos2 smile2 close at left
     show thld_pi normal far at right
     with dissolve
