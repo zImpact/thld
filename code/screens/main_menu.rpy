@@ -139,7 +139,7 @@ screen thld_load_main_menu():
                 ]
 
         else:
-            text "Загрузить игру":
+            text "Загрузить":
                 font thld_main_menu_font
                 color "#d1d1d1"
                 size 60

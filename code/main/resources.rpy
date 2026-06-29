@@ -572,7 +572,7 @@ init:
     image thld_start_button_idle = ThldTextRectangle(
         padding=thld_main_menu_buttons_padding,
         alpha=thld_main_menu_buttons_alpha,
-        text="Начать игру",
+        text="Начать",
         font=thld_main_menu_font,
         size=thld_main_menu_buttons_size
     )
@@ -653,7 +653,7 @@ init:
         pause 0.2
         repeat
 
-    image thld_load_button_idle_ = Text("Загрузить игру", font=thld_main_menu_font, size=thld_main_menu_buttons_size)
+    image thld_load_button_idle_ = Text("Загрузить", font=thld_main_menu_font, size=thld_main_menu_buttons_size)
 
     image thld_load_button_hover_:
         ThldGlitchEffect("thld_load_button_idle_")
